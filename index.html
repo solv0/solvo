@@ -326,8 +326,8 @@ footer{border-top:1px solid var(--line);padding:28px 48px;display:flex;justify-c
 
   <div id="success-wrap" class="success-card hidden">
     <div class="success-icon">✅</div>
-    <h3>Chamado enviado!</h3>
-    <p>Um advogado vai analisar seu caso e entrar em contato pelo WhatsApp que você informou.</p>
+    <h3>Chamado recebido!</h3>
+    <p>Estamos encaminhando seu caso para um advogado disponível. Em breve você receberá o contato pelo WhatsApp que você informou.</p>
     <div class="chamado-num" id="success-num">#0001</div>
 
     <div style="margin-top:28px;background:#fff;border:1.5px solid var(--line2);border-radius:14px;padding:22px 24px;text-align:left;">
@@ -438,6 +438,11 @@ footer{border-top:1px solid var(--line);padding:28px 48px;display:flex;justify-c
 // ── CONFIG ──
 const ADMIN_PASS = 'solvo2026';
 const WA_NUMBER = '5551999764941';
+// CALLMEBOT: para ativar as notificações no seu WhatsApp:
+// 1. Salva o contato +34 644 66 08 98
+// 2. Manda "I allow callmebot to send me messages" para esse contato no WhatsApp
+// 3. Você receberá sua API key na resposta
+// 4. Substitui 'SUA_API_KEY' abaixo pela key recebida e sobe o arquivo no GitHub
 const CALLMEBOT_KEY = 'SUA_API_KEY';
 
 // ── STATE ──
