@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solvo — Consultoria Jurídica Online</title>
+<title>Solvo - Consultoria Juridica Online</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#fff;--bg2:#f4f6ff;--ink:#0a0a14;--ink2:#3d3d52;--ink3:#8888a0;
   --accent:#3b3bff;--accent2:#7c3bff;--accent3:#00d4aa;
-  --red:#ff3b3b;--yellow:#ffb800;
+  --red:#ff3b3b;--yellow:#ffb800;--green:#25d366;
   --line:#e8e8f0;--line2:rgba(59,59,255,0.12);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--ink);font-family:'Outfit',sans-serif;font-weight:400;overflow-x:hidden;}
 .hidden{display:none!important;}
-input,textarea,select{font-family:'Outfit',sans-serif;}
+input,textarea,select,button{font-family:'Outfit',sans-serif;}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
@@ -24,7 +24,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .logo-mark{width:36px;height:36px;flex-shrink:0;}
 .logo-text{font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--ink);}
 .logo-text span{color:var(--accent);}
-.nav-admin-btn{font-size:13px;font-weight:500;color:var(--ink3);background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;padding:8px 16px;border-radius:8px;transition:all 0.2s;}
+.nav-admin-btn{font-size:13px;font-weight:500;color:var(--ink3);background:none;border:none;cursor:pointer;padding:8px 16px;border-radius:8px;transition:all 0.2s;}
 .nav-admin-btn:hover{background:var(--bg2);color:var(--accent);}
 
 /* PUBLIC */
@@ -47,43 +47,40 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .field input:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,59,255,0.08);}
 .field textarea{min-height:120px;line-height:1.6;}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-@media(max-width:500px){.field-row{grid-template-columns:1fr;}}
 
-/* AUDIO RECORDER */
+/* AUDIO */
 .audio-section{margin-bottom:20px;}
 .audio-label{font-size:13px;font-weight:600;color:var(--ink2);margin-bottom:10px;display:block;}
 .audio-or{text-align:center;font-size:12px;color:var(--ink3);margin:16px 0;position:relative;}
 .audio-or::before,.audio-or::after{content:'';position:absolute;top:50%;width:42%;height:1px;background:var(--line);}
 .audio-or::before{left:0;}
 .audio-or::after{right:0;}
-
 .recorder-box{border:1.5px solid var(--line);border-radius:12px;padding:20px;text-align:center;background:var(--bg2);}
-.rec-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s;}
+.rec-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;}
 .rec-btn-start{background:var(--accent);color:#fff;box-shadow:0 4px 16px rgba(59,59,255,0.28);}
 .rec-btn-start:hover{background:#2828e0;}
 .rec-btn-stop{background:var(--red);color:#fff;animation:pulse-red 1.2s ease infinite;}
 @keyframes pulse-red{0%,100%{box-shadow:0 0 0 0 rgba(255,59,59,0.4);}50%{box-shadow:0 0 0 8px rgba(255,59,59,0);}}
 .rec-timer{font-size:13px;color:var(--red);font-family:'JetBrains Mono',monospace;margin-top:10px;font-weight:600;}
 .rec-status{font-size:13px;color:var(--ink3);margin-top:8px;}
-
 .audio-preview{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--line2);border-radius:10px;padding:12px 16px;margin-top:12px;}
 .audio-preview audio{flex:1;height:36px;}
 .btn-remove-audio{background:none;border:none;color:var(--red);cursor:pointer;font-size:18px;padding:4px;line-height:1;}
-
-.transcription-box{margin-top:12px;padding:14px 16px;background:#fff;border:1.5px solid var(--accent);border-radius:10px;font-size:14px;color:var(--ink);line-height:1.7;position:relative;}
+.transcription-box{margin-top:12px;padding:14px 16px;background:#fff;border:1.5px solid var(--accent);border-radius:10px;font-size:14px;color:var(--ink);line-height:1.7;}
 .transcription-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-family:'JetBrains Mono',monospace;}
 .transcribing-spinner{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--accent);padding:10px 0;}
 .spinner{width:16px;height:16px;border:2px solid var(--line2);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
 
+/* TERMS */
 .terms-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:24px;}
 .terms-row input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent);flex-shrink:0;margin-top:2px;cursor:pointer;}
 .terms-row label{font-size:13px;color:var(--ink2);line-height:1.6;cursor:pointer;}
 .terms-row a{color:var(--accent);text-decoration:underline;}
 
-.btn-submit{width:100%;padding:16px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s;box-shadow:0 8px 28px rgba(59,59,255,0.3);}
+/* BUTTONS */
+.btn-submit{width:100%;padding:16px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s;box-shadow:0 8px 28px rgba(59,59,255,0.3);}
 .btn-submit:hover{background:#2828e0;transform:translateY(-1px);}
-.btn-submit:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
 
 /* SUCCESS */
 .success-card{background:linear-gradient(135deg,rgba(59,59,255,0.04),rgba(124,59,255,0.04));border:1.5px solid var(--line2);border-radius:20px;padding:48px 40px;text-align:center;max-width:500px;margin:0 auto 80px;}
@@ -92,28 +89,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .success-card p{font-size:15px;color:var(--ink2);line-height:1.7;}
 .chamado-num{margin-top:20px;display:inline-block;background:var(--ink);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:14px;padding:10px 20px;border-radius:8px;letter-spacing:1px;}
 
-/* HOW + PRICE */
+/* HOW */
 .how{padding:0 24px 100px;max-width:900px;margin:0 auto;}
 .eyebrow{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-family:'JetBrains Mono',monospace;}
 .how h2{font-size:clamp(26px,4vw,36px);font-weight:800;letter-spacing:-0.8px;margin-bottom:48px;line-height:1.1;}
 .steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;}
-@media(max-width:620px){.steps3{grid-template-columns:1fr;}}
 .s3{background:#fff;padding:36px 28px;transition:background 0.2s;}
 .s3:hover{background:var(--bg2);}
 .s3-n{font-size:11px;font-weight:600;letter-spacing:2px;color:var(--accent);margin-bottom:16px;font-family:'JetBrains Mono',monospace;}
 .s3-ico{font-size:28px;margin-bottom:12px;display:block;}
 .s3 h3{font-size:17px;font-weight:700;letter-spacing:-0.3px;margin-bottom:8px;}
 .s3 p{font-size:13px;color:var(--ink2);line-height:1.7;}
+
+/* PRICE */
 .price-strip{background:var(--ink);padding:48px 24px;text-align:center;}
 .price-strip p{font-size:14px;color:rgba(255,255,255,0.45);margin-bottom:8px;font-family:'JetBrains Mono',monospace;}
 .price-strip .big{font-size:clamp(52px,8vw,80px);font-weight:800;letter-spacing:-3px;color:#fff;line-height:1;}
 .price-strip .big sup{font-size:0.35em;vertical-align:super;color:rgba(255,255,255,0.4);font-weight:400;}
 .price-strip .note{font-size:13px;color:rgba(255,255,255,0.35);margin-top:8px;}
 
+/* FOOTER */
 footer{border-top:1px solid var(--line);padding:28px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-@media(max-width:600px){footer{padding:24px;flex-direction:column;align-items:flex-start;}}
 .footer-legal{font-size:12px;color:var(--ink3);line-height:1.8;}
-.footer-legal a{color:var(--ink3);text-decoration:underline;}
+.footer-legal a{color:var(--ink3);text-decoration:underline;cursor:pointer;}
+
+/* CONSULTA */
+#consulta-page{padding-top:68px;}
 
 /* LOGIN */
 #login-page{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg2);padding:24px;}
@@ -121,7 +122,7 @@ footer{border-top:1px solid var(--line);padding:28px 48px;display:flex;justify-c
 .login-card h2{font-size:24px;font-weight:800;letter-spacing:-0.5px;margin-bottom:6px;}
 .login-card p{font-size:14px;color:var(--ink3);margin-bottom:32px;}
 .login-err{font-size:13px;color:var(--red);margin-top:8px;display:none;}
-.btn-login{width:100%;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s;box-shadow:0 6px 20px rgba(59,59,255,0.28);}
+.btn-login{width:100%;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;box-shadow:0 6px 20px rgba(59,59,255,0.28);}
 .btn-login:hover{background:#2828e0;}
 
 /* ADMIN */
@@ -131,116 +132,90 @@ footer{border-top:1px solid var(--line);padding:28px 48px;display:flex;justify-c
 .admin-nav .alogo span{color:var(--accent);}
 .admin-nav-right{display:flex;align-items:center;gap:16px;}
 .notif-badge{background:var(--red);color:#fff;font-size:11px;font-weight:700;border-radius:100px;padding:2px 8px;font-family:'JetBrains Mono',monospace;}
-.btn-logout{font-size:13px;color:var(--ink3);background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;padding:8px 14px;border-radius:8px;transition:all 0.2s;}
+.btn-logout{font-size:13px;color:var(--ink3);background:none;border:none;cursor:pointer;padding:8px 14px;border-radius:8px;transition:all 0.2s;}
 .btn-logout:hover{background:var(--line);}
 .admin-body{display:grid;grid-template-columns:320px 1fr;min-height:calc(100vh - 64px);}
-@media(max-width:800px){.admin-body{grid-template-columns:1fr;}}
 
 /* SIDEBAR */
 .sidebar{background:#fff;border-right:1px solid var(--line);overflow-y:auto;max-height:calc(100vh - 64px);position:sticky;top:64px;}
 .sidebar-header{padding:20px 20px 12px;border-bottom:1px solid var(--line);}
 .sidebar-header h3{font-size:14px;font-weight:700;margin-bottom:12px;}
 .filter-tabs{display:flex;gap:4px;flex-wrap:wrap;}
-.ftab{font-size:12px;font-weight:500;padding:6px 10px;border-radius:6px;border:none;background:none;cursor:pointer;color:var(--ink3);font-family:'Outfit',sans-serif;transition:all 0.15s;}
+.ftab{font-size:11px;font-weight:500;padding:5px 10px;border-radius:6px;border:none;background:none;cursor:pointer;color:var(--ink3);transition:all 0.15s;}
 .ftab.active{background:var(--accent);color:#fff;}
 .ftab:hover:not(.active){background:var(--bg2);}
 .chamado-item{padding:16px 20px;border-bottom:1px solid var(--line);cursor:pointer;transition:background 0.15s;position:relative;}
 .chamado-item:hover{background:var(--bg2);}
-.chamado-item.active{background:var(--bg2);border-left:3px solid var(--accent);}
-.chamado-item.unread::after{content:'';position:absolute;top:18px;right:18px;width:8px;height:8px;border-radius:50%;background:var(--accent);}
+.chamado-item.ativo{background:var(--bg2);border-left:3px solid var(--accent);}
+.chamado-item.nao-lido::after{content:'';position:absolute;top:18px;right:18px;width:8px;height:8px;border-radius:50%;background:var(--accent);}
 .ci-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
 .ci-num{font-size:11px;font-weight:600;color:var(--accent);font-family:'JetBrains Mono',monospace;}
 .ci-time{font-size:11px;color:var(--ink3);}
 .ci-name{font-size:14px;font-weight:600;margin-bottom:3px;}
 .ci-preview{font-size:12px;color:var(--ink3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:240px;}
-.status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;}
-.dot-novo{background:var(--accent);}
-.dot-andamento{background:var(--yellow);}
-.dot-enviado{background:#ff8c00;}
-.dot-resolvido{background:var(--accent3);}
 .ci-status{font-size:11px;font-weight:600;margin-top:5px;}
+.sdot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:4px;}
+.sdot-novo{background:var(--accent);}
+.sdot-andamento{background:var(--yellow);}
+.sdot-enviado{background:#ff8c00;}
+.sdot-resolvido{background:var(--accent3);}
 .empty-state{padding:48px 20px;text-align:center;color:var(--ink3);}
 .empty-state .es-icon{font-size:36px;margin-bottom:12px;}
 .empty-state p{font-size:13px;line-height:1.6;}
 
 /* DETAIL */
 .detail{padding:32px;overflow-y:auto;max-height:calc(100vh - 64px);}
-.detail-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--ink3);text-align:center;padding:48px;}
+.detail-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;color:var(--ink3);text-align:center;}
 .detail-empty .de-icon{font-size:48px;margin-bottom:16px;opacity:0.4;}
-.detail-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;}
+.dh{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;}
 .dh-left h2{font-size:20px;font-weight:800;letter-spacing:-0.4px;margin-bottom:4px;}
-.dh-left .dh-meta{font-size:13px;color:var(--ink3);font-family:'JetBrains Mono',monospace;}
-.dh-right{display:flex;gap:8px;flex-wrap:wrap;}
-.status-pill{font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;border:none;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s;}
-.sp-novo{background:rgba(59,59,255,0.1);color:var(--accent);}
-.sp-andamento{background:rgba(255,184,0,0.12);color:#b07d00;}
-.sp-enviado{background:rgba(255,140,0,0.12);color:#c06000;}
-.sp-resolvido{background:rgba(0,212,170,0.12);color:#00916e;}
+.dh-meta{font-size:13px;color:var(--ink3);font-family:'JetBrains Mono',monospace;}
+.dh-right{display:flex;gap:6px;flex-wrap:wrap;}
+.spill{font-size:11px;font-weight:600;padding:6px 12px;border-radius:100px;border:none;cursor:pointer;transition:all 0.2s;}
+.spill-novo{background:rgba(59,59,255,0.1);color:var(--accent);}
+.spill-andamento{background:rgba(255,184,0,0.12);color:#b07d00;}
+.spill-enviado{background:rgba(255,140,0,0.12);color:#c06000;}
+.spill-resolvido{background:rgba(0,212,170,0.12);color:#00916e;}
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
-@media(max-width:600px){.info-grid{grid-template-columns:1fr;}}
 .info-box{background:var(--bg2);border-radius:12px;padding:16px 18px;}
 .ib-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:5px;font-family:'JetBrains Mono',monospace;}
 .ib-val{font-size:15px;font-weight:600;}
-.problema-box{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:24px;}
+.pb{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:24px;}
 .pb-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;font-family:'JetBrains Mono',monospace;}
 .pb-text{font-size:15px;line-height:1.8;}
-
-/* AUDIO BADGE no chamado */
 .audio-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(59,59,255,0.07);border:1px solid var(--line2);border-radius:8px;padding:6px 12px;font-size:12px;color:var(--accent);font-weight:600;margin-bottom:8px;}
 .transcricao-box{background:var(--bg2);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 16px;margin-bottom:20px;font-size:14px;line-height:1.7;color:var(--ink2);}
 .transcricao-box strong{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-family:'JetBrains Mono',monospace;}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;text-decoration:none;padding:14px 24px;border-radius:10px;font-size:15px;font-weight:700;transition:all 0.2s;box-shadow:0 4px 16px rgba(37,211,102,0.3);border:none;cursor:pointer;}
+.btn-wa:hover{background:#1da851;transform:translateY(-1px);}
+.btn-concluir{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,170,0.1);color:#00916e;border:1.5px solid rgba(0,212,170,0.3);padding:14px 22px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s;margin-left:10px;}
+.btn-concluir:hover{background:rgba(0,212,170,0.2);}
+.detail-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
 
-/* MSGS */
-.msgs{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
-.msg{padding:14px 16px;border-radius:12px;font-size:14px;line-height:1.7;}
-.msg-adv{background:linear-gradient(135deg,rgba(59,59,255,0.07),rgba(124,59,255,0.05));border-left:3px solid var(--accent);}
-.msg-sys{background:rgba(0,212,170,0.07);border-left:3px solid var(--accent3);}
-.msg-time{font-size:11px;color:var(--ink3);margin-top:6px;font-family:'JetBrains Mono',monospace;}
-
-/* DOC ENTREGUE */
-.doc-entregue{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(0,212,170,0.07),rgba(59,59,255,0.05));border:1.5px solid rgba(0,212,170,0.25);border-radius:12px;padding:16px 18px;margin-top:10px;}
-.doc-entregue .de-ico{font-size:26px;flex-shrink:0;}
-.de-info .de-title{font-size:14px;font-weight:700;margin-bottom:3px;}
-.de-info .de-sub{font-size:12px;color:var(--ink3);}
-.de-btn{margin-left:auto;padding:9px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:6px;flex-shrink:0;transition:all 0.2s;}
-.de-btn:hover{background:#2828e0;}
-
-/* RESPOSTA ADMIN */
-.resposta-section{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:22px;margin-bottom:16px;}
-.rs-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;font-family:'JetBrains Mono',monospace;}
-.rs-textarea{width:100%;min-height:100px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font-size:14px;color:var(--ink);resize:vertical;outline:none;font-family:'Outfit',sans-serif;line-height:1.6;transition:border-color 0.2s;}
-.rs-textarea:focus{border-color:var(--accent);}
-
-/* UPLOAD DOC ADMIN */
-.upload-doc-area{border:2px dashed var(--line);border-radius:10px;padding:20px;text-align:center;cursor:pointer;transition:all 0.2s;color:var(--ink3);font-size:13px;margin-top:12px;}
-.upload-doc-area:hover,.upload-doc-area.drag{border-color:var(--accent);background:var(--bg2);color:var(--accent);}
-.upload-doc-area input{display:none;}
-.upload-doc-preview{display:flex;align-items:center;gap:10px;margin-top:10px;padding:10px 14px;background:var(--bg2);border-radius:8px;font-size:13px;font-weight:600;color:var(--accent);}
-.upload-doc-preview .rm-doc{margin-left:auto;background:none;border:none;color:var(--red);cursor:pointer;font-size:16px;line-height:1;}
-
-.rs-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
-.btn-entregar{padding:12px 22px;background:var(--accent);color:#fff;border:none;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s;box-shadow:0 4px 16px rgba(59,59,255,0.28);}
-.btn-entregar:hover{background:#2828e0;transform:translateY(-1px);}
-.btn-cobrar{padding:12px 22px;background:rgba(0,212,170,0.1);color:#00916e;border:1.5px solid rgba(0,212,170,0.3);border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s;}
-.btn-cobrar:hover{background:rgba(0,212,170,0.18);}
-
-.proposta-strip{margin-top:22px;padding:16px 18px;border:1px solid rgba(59,59,255,0.3);border-radius:10px;background:rgba(59,59,255,0.08);display:flex;gap:12px;align-items:flex-start;}
-.proposta-strip p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;}
-.proposta-strip strong{color:rgba(255,255,255,0.72);}
+/* STATUS SELECT */
+.status-select-wrap{margin-bottom:24px;}
+.status-select-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;font-family:'JetBrains Mono',monospace;}
+.status-btns{display:flex;gap:8px;flex-wrap:wrap;}
 
 /* TOAST */
 .toast{position:fixed;bottom:32px;right:32px;background:var(--ink);color:#fff;padding:14px 22px;border-radius:12px;font-size:14px;font-weight:500;z-index:9999;transform:translateY(80px);opacity:0;transition:all 0.3s ease;box-shadow:0 8px 32px rgba(0,0,0,0.2);}
 .toast.show{transform:translateY(0);opacity:1;}
 
-@media(max-width:600px){nav{padding:0 20px;}}
+@media(max-width:860px){
+  nav{padding:0 20px;}
+  .admin-body{grid-template-columns:1fr;}
+  .steps3{grid-template-columns:1fr;}
+  footer{padding:24px;flex-direction:column;align-items:flex-start;}
+  .field-row{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
 
-<!-- ═══ PUBLIC ═══ -->
+<!-- PUBLIC PAGE -->
 <div id="public-page">
   <nav>
-    <a class="logo" onclick="showPublic()">
+    <a class="logo" id="logo-pub" href="#">
       <svg class="logo-mark" viewBox="0 0 36 36" fill="none">
         <circle cx="18" cy="14" r="9" fill="url(#lg1)"/>
         <path d="M10 21 Q7 27 9 31" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
@@ -253,18 +228,18 @@ footer{border-top:1px solid var(--line);padding:28px 48px;display:flex;justify-c
       </svg>
       <span class="logo-text">Sol<span>vo</span></span>
     </a>
-    <button class="nav-admin-btn" onclick="showLogin()">⚙ Painel</button>
+    <button class="nav-admin-btn" id="btn-painel">Painel</button>
   </nav>
 
   <div class="hero-pub">
-    <div class="badge"><div class="badge-dot"></div>consultoria jurídica · online · agora</div>
-    <h1>Seu problema jurídico.<br><span class="grad">Resolvido.</span></h1>
-    <p>Descreva o que está acontecendo com suas palavras.<br>Um advogado analisa e entrega o documento que você precisa.</p>
+    <div class="badge"><div class="badge-dot"></div>consultoria juridica online</div>
+    <h1>Seu problema juridico.<br><span class="grad">Resolvido.</span></h1>
+    <p>Descreva o que esta acontecendo com suas palavras.<br>Um advogado analisa e entrega o documento que voce precisa.</p>
   </div>
 
   <div id="form-wrap" class="form-card">
     <h2>Descreva seu problema</h2>
-    <p class="form-sub">Sem juridiquês. Escreva ou grave um áudio — como preferir.</p>
+    <p class="form-sub">Sem juridiques. Escreva ou grave um audio.</p>
 
     <div class="field-row">
       <div class="field">
@@ -277,107 +252,87 @@ footer{border-top:1px solid var(--line);padding:28px 48px;display:flex;justify-c
       </div>
     </div>
 
-    <!-- ÁUDIO -->
     <div class="audio-section">
-      <span class="audio-label">Prefere gravar um áudio?</span>
+      <span class="audio-label">Prefere gravar um audio?</span>
       <div class="recorder-box">
-        <button class="rec-btn rec-btn-start" id="rec-start-btn" onclick="startRecording()">🎙 Gravar áudio</button>
-        <button class="rec-btn rec-btn-stop hidden" id="rec-stop-btn" onclick="stopRecording()">⏹ Parar gravação</button>
+        <button class="rec-btn rec-btn-start" id="rec-start-btn">Gravar audio</button>
+        <button class="rec-btn rec-btn-stop hidden" id="rec-stop-btn">Parar gravacao</button>
         <div class="rec-timer hidden" id="rec-timer">00:00</div>
-        <div class="rec-status" id="rec-status">Clique para gravar sua situação em voz</div>
+        <div class="rec-status" id="rec-status">Clique para gravar</div>
       </div>
-
       <div class="hidden" id="audio-preview-wrap">
         <div class="audio-preview">
           <audio id="audio-playback" controls></audio>
-          <button class="btn-remove-audio" onclick="removeAudio()" title="Remover áudio">✕</button>
+          <button class="btn-remove-audio" id="btn-remove-audio">x</button>
         </div>
       </div>
-
       <div class="hidden" id="transcribing-wrap">
-        <div class="transcribing-spinner"><div class="spinner"></div>Transcrevendo seu áudio...</div>
+        <div class="transcribing-spinner"><div class="spinner"></div>Transcrevendo...</div>
       </div>
-
       <div class="hidden" id="transcription-result">
         <div class="transcription-box">
-          <div class="transcription-label">✦ Transcrição do seu áudio</div>
+          <div class="transcription-label">Transcricao do audio</div>
           <div id="transcription-text"></div>
         </div>
-        <div style="font-size:12px;color:var(--ink3);margin-top:6px;">Você pode editar o texto abaixo se precisar corrigir algo.</div>
       </div>
     </div>
 
     <div class="audio-or">ou escreva</div>
 
     <div class="field">
-      <label>Qual é o seu problema? Conte tudo.</label>
-      <textarea id="f-problema" placeholder="Ex: Comprei um notebook que parou de funcionar. A loja não quer trocar. O que eu faço?"></textarea>
+      <label>Qual e o seu problema?</label>
+      <textarea id="f-problema" placeholder="Ex: Comprei um produto com defeito e a loja nao quer trocar. O que eu faco?"></textarea>
     </div>
 
     <div class="terms-row">
       <input type="checkbox" id="f-termos">
-      <label for="f-termos">Li e aceito os <a href="termos.html" target="_blank">Termos de Uso</a> e a <a href="termos.html#privacidade" target="_blank">Política de Privacidade</a>. Entendo que meus dados serão usados exclusivamente para prestação do serviço jurídico.</label>
+      <label for="f-termos">Li e aceito os <a href="termos.html" target="_blank">Termos de Uso</a> e a <a href="termos.html" target="_blank">Politica de Privacidade</a>.</label>
     </div>
 
-    <button class="btn-submit" id="btn-submit" onclick="submitForm()">Enviar e aguardar análise →</button>
-    <div style="text-align:center;margin-top:12px;font-size:13px;color:var(--ink3);line-height:1.6;">
-      Você receberá um <strong style="color:var(--ink2);">parecer jurídico assinado</strong> — documento que explica seus direitos e o que fazer.<br>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;">✦ R$ 150 fixo · só paga quando receber</span>
+    <button class="btn-submit" id="btn-enviar">Enviar e aguardar analise</button>
+    <div style="text-align:center;margin-top:12px;font-size:13px;color:var(--ink3);">
+      Voce recebera um parecer juridico assinado. R$ 150 fixo. So paga quando receber.
     </div>
   </div>
 
   <div id="success-wrap" class="success-card hidden">
-    <div class="success-icon">✅</div>
+    <div class="success-icon">&#10003;</div>
     <h3>Chamado recebido!</h3>
-    <p>Estamos encaminhando seu caso para um advogado disponível. Em breve você receberá o contato pelo WhatsApp que você informou.</p>
+    <p>Estamos encaminhando seu caso para um advogado. Em breve voce recebera contato pelo WhatsApp informado.</p>
     <div class="chamado-num" id="success-num">#0001</div>
-
     <div style="margin-top:28px;background:#fff;border:1.5px solid var(--line2);border-radius:14px;padding:22px 24px;text-align:left;">
-      <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-family:'JetBrains Mono',monospace;">// O que é um parecer jurídico?</div>
-      <p style="font-size:14px;color:var(--ink2);line-height:1.8;margin:0;">
-        É um documento <strong style="color:var(--ink);">assinado por um advogado</strong> que analisa o seu caso, explica seus direitos e indica o caminho mais eficiente para resolver. Com ele na mão, você sabe exatamente o que fazer — e se precisar acionar a empresa, o juizado especial ou um cartório, já chega com respaldo jurídico formal.
-      </p>
+      <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-family:'JetBrains Mono',monospace;">O que e um parecer juridico?</div>
+      <p style="font-size:14px;color:var(--ink2);line-height:1.8;margin:0;">E um documento assinado por um advogado que analisa seu caso, explica seus direitos e indica o caminho para resolver. Com ele voce sabe o que fazer e chega com respaldo juridico formal.</p>
       <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;">
-        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);">
-          <span style="color:var(--accent3);font-weight:700;flex-shrink:0;">✓</span>
-          Tem validade legal — assinado com certificado digital ICP-Brasil
-        </div>
-        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);">
-          <span style="color:var(--accent3);font-weight:700;flex-shrink:0;">✓</span>
-          Você pode usar para negociar, reclamar em órgãos ou entrar no juizado
-        </div>
-        <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);">
-          <span style="color:var(--accent3);font-weight:700;flex-shrink:0;">✓</span>
-          Se precisar de mais — notificação, contrato ou procuração — a gente já avisa com proposta
-        </div>
+        <div style="display:flex;gap:10px;font-size:13px;color:var(--ink2);"><span style="color:var(--accent3);font-weight:700;">+</span>Validade legal com certificado digital ICP-Brasil</div>
+        <div style="display:flex;gap:10px;font-size:13px;color:var(--ink2);"><span style="color:var(--accent3);font-weight:700;">+</span>Pode usar para negociar, reclamar ou entrar no juizado</div>
+        <div style="display:flex;gap:10px;font-size:13px;color:var(--ink2);"><span style="color:var(--accent3);font-weight:700;">+</span>Se precisar de mais, voce recebe proposta junto</div>
       </div>
     </div>
-
-    <p style="margin-top:18px;font-size:12px;color:var(--ink3);">Guarde o número do chamado para acompanhar seu caso.</p>
     <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;justify-content:center;">
-      <button class="btn-submit" style="flex:1;min-width:160px;" onclick="novoEnvio()">Enviar outro caso</button>
-      <button onclick="showConsulta()" style="flex:1;min-width:160px;padding:16px;background:var(--bg2);color:var(--accent);border:1.5px solid var(--line2);border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s;">🔍 Consultar status</button>
+      <button class="btn-submit" id="btn-novo-envio" style="flex:1;min-width:160px;">Enviar outro caso</button>
+      <button id="btn-ir-consulta" style="flex:1;min-width:160px;padding:16px;background:var(--bg2);color:var(--accent);border:1.5px solid var(--line2);border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;">Consultar status</button>
     </div>
   </div>
 
   <div class="how">
     <div class="eyebrow">// Como funciona</div>
-    <h2>Simples como mandar<br>uma mensagem.</h2>
+    <h2>Simples como mandar uma mensagem.</h2>
     <div class="steps3">
-      <div class="s3"><div class="s3-n">01 —</div><span class="s3-ico">💬</span><h3>Você descreve</h3><p>Escreva ou grave um áudio. Sem formulário complicado, sem juridiquês.</p></div>
-      <div class="s3"><div class="s3-n">02 —</div><span class="s3-ico">⚡</span><h3>A gente analisa</h3><p>Um advogado lê o seu caso e decide o que você precisa.</p></div>
-      <div class="s3"><div class="s3-n">03 —</div><span class="s3-ico">✅</span><h3>Você recebe</h3><p>Parecer jurídico assinado digitalmente. Documento com validade legal que explica seus direitos e o que fazer. Só paga quando receber.</p></div>
+      <div class="s3"><div class="s3-n">01</div><span class="s3-ico">&#128172;</span><h3>Voce descreve</h3><p>Escreva ou grave um audio. Sem formulario complicado.</p></div>
+      <div class="s3"><div class="s3-n">02</div><span class="s3-ico">&#9889;</span><h3>A gente analisa</h3><p>Um advogado le seu caso e decide o que voce precisa.</p></div>
+      <div class="s3"><div class="s3-n">03</div><span class="s3-ico">&#10003;</span><h3>Voce recebe</h3><p>Parecer juridico assinado digitalmente. So paga quando receber.</p></div>
     </div>
   </div>
 
   <div class="price-strip">
-    <p>// preço fixo · sem surpresa</p>
+    <p>// preco fixo sem surpresa</p>
     <div class="big"><sup>R$</sup>150</div>
-    <div class="note">por consulta · parecer assinado digitalmente · ICP-Brasil</div>
+    <div class="note">por consulta · parecer assinado · ICP-Brasil</div>
   </div>
 
   <footer>
-    <a class="logo" onclick="showPublic()" style="cursor:pointer;">
+    <a class="logo" id="logo-footer" href="#">
       <svg class="logo-mark" viewBox="0 0 36 36" fill="none">
         <circle cx="18" cy="14" r="9" fill="url(#lg2)"/>
         <path d="M10 21 Q7 27 9 31" stroke="url(#lg2)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
@@ -390,68 +345,72 @@ footer{border-top:1px solid var(--line);padding:28px 48px;display:flex;justify-c
       </svg>
       <span class="logo-text">Sol<span>vo</span></span>
     </a>
-    <div class="footer-legal">Serviço de consultoria jurídica · Advogados inscritos na OAB<br><a href="termos.html#privacidade" target="_blank">Política de Privacidade</a> · <a href="termos.html" target="_blank">Termos de Uso</a> · <a href="#" onclick="showConsulta();return false">Consultar chamado</a></div>
+    <div class="footer-legal">
+      Servico de consultoria juridica · Advogados inscritos na OAB<br>
+      <a href="termos.html" target="_blank">Politica de Privacidade</a> · <a href="termos.html" target="_blank">Termos de Uso</a> · <a href="#" id="link-consulta-footer">Consultar chamado</a>
+    </div>
   </footer>
 </div>
 
-<!-- ═══ CONSULTA CLIENTE ═══ -->
+<!-- CONSULTA PAGE -->
 <div id="consulta-page" class="hidden">
   <nav>
-    <a class="logo" onclick="showPublic()">
+    <a class="logo" id="logo-consulta" href="#">
       <svg class="logo-mark" viewBox="0 0 36 36" fill="none">
-        <circle cx="18" cy="14" r="9" fill="url(#lgc)"/>
-        <path d="M10 21 Q7 27 9 31" stroke="url(#lgc)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M13.5 23 Q12 28.5 13.5 32" stroke="url(#lgc)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M18 24 Q18 29.5 18 33" stroke="url(#lgc)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M22.5 23 Q24 28.5 22.5 32" stroke="url(#lgc)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M26 21 Q29 27 27 31" stroke="url(#lgc)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <circle cx="18" cy="14" r="9" fill="url(#lg3)"/>
+        <path d="M10 21 Q7 27 9 31" stroke="url(#lg3)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <path d="M13.5 23 Q12 28.5 13.5 32" stroke="url(#lg3)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <path d="M18 24 Q18 29.5 18 33" stroke="url(#lg3)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <path d="M22.5 23 Q24 28.5 22.5 32" stroke="url(#lg3)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <path d="M26 21 Q29 27 27 31" stroke="url(#lg3)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
         <text x="18" y="19.5" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" font-weight="800" fill="white">S</text>
-        <defs><linearGradient id="lgc" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b3bff"/><stop offset="100%" stop-color="#7c3bff"/></linearGradient></defs>
+        <defs><linearGradient id="lg3" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b3bff"/><stop offset="100%" stop-color="#7c3bff"/></linearGradient></defs>
       </svg>
       <span class="logo-text">Sol<span>vo</span></span>
     </a>
-    <button class="nav-admin-btn" onclick="showPublic()">← Voltar</button>
+    <button class="nav-admin-btn" id="btn-voltar-consulta">Voltar</button>
   </nav>
   <div style="max-width:480px;margin:80px auto;padding:24px;">
     <div style="text-align:center;margin-bottom:36px;">
-      <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-family:'JetBrains Mono',monospace;">// Acompanhar chamado</div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-family:'JetBrains Mono',monospace;">Acompanhar chamado</div>
       <h2 style="font-size:28px;font-weight:800;letter-spacing:-0.8px;">Consultar status</h2>
-      <p style="font-size:15px;color:var(--ink2);margin-top:8px;">Digite o número do seu chamado para ver o andamento.</p>
+      <p style="font-size:15px;color:var(--ink2);margin-top:8px;">Digite o numero do seu chamado.</p>
     </div>
     <div style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;box-shadow:0 4px 24px rgba(59,59,255,0.07);">
       <div class="field">
-        <label>Número do chamado</label>
-        <input type="text" id="consulta-num" placeholder="Ex: 0001" style="font-size:24px;font-weight:700;letter-spacing:2px;font-family:'JetBrains Mono',monospace;text-align:center;" onkeydown="if(event.key==='Enter')buscarChamado()">
+        <label>Numero do chamado</label>
+        <input type="text" id="consulta-num" placeholder="Ex: 0001" style="font-size:24px;font-weight:700;letter-spacing:2px;font-family:'JetBrains Mono',monospace;text-align:center;">
       </div>
-      <button class="btn-submit" onclick="buscarChamado()">Consultar →</button>
+      <button class="btn-submit" id="btn-buscar">Consultar</button>
     </div>
-    <div id="consulta-result" class="hidden" style="margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:0 4px 24px rgba(59,59,255,0.07);">
-    </div>
+    <div id="consulta-result" class="hidden" style="margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:0 4px 24px rgba(59,59,255,0.07);"></div>
   </div>
 </div>
 
-<!-- ═══ LOGIN ═══ -->
+<!-- LOGIN PAGE -->
 <div id="login-page" class="hidden">
   <div class="login-card">
     <h2>Painel Solvo</h2>
-    <p>Acesso restrito à equipe.</p>
+    <p>Acesso restrito.</p>
     <div class="field">
       <label>Senha</label>
-      <input type="password" id="login-senha" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+      <input type="password" id="login-senha" placeholder="••••••••">
     </div>
     <div class="login-err" id="login-err">Senha incorreta.</div>
-    <button class="btn-login" onclick="doLogin()">Entrar →</button>
-    <div style="text-align:center;margin-top:20px;"><button style="background:none;border:none;font-size:13px;color:var(--ink3);cursor:pointer;font-family:'Outfit',sans-serif;" onclick="showPublic()">← Voltar ao site</button></div>
+    <button class="btn-login" id="btn-entrar">Entrar</button>
+    <div style="text-align:center;margin-top:20px;">
+      <button id="btn-voltar-login" style="background:none;border:none;font-size:13px;color:var(--ink3);cursor:pointer;">Voltar ao site</button>
+    </div>
   </div>
 </div>
 
-<!-- ═══ ADMIN ═══ -->
+<!-- ADMIN PAGE -->
 <div id="admin-page" class="hidden">
   <div class="admin-nav">
     <div class="alogo">Sol<span>vo</span> <span style="font-size:12px;font-weight:400;color:var(--ink3);">/ painel</span></div>
     <div class="admin-nav-right">
       <span class="notif-badge hidden" id="badge-count">0</span>
-      <button class="btn-logout" onclick="doLogout()">Sair</button>
+      <button class="btn-logout" id="btn-sair">Sair</button>
     </div>
   </div>
   <div class="admin-body">
@@ -459,17 +418,20 @@ footer{border-top:1px solid var(--line);padding:28px 48px;display:flex;justify-c
       <div class="sidebar-header">
         <h3>Chamados</h3>
         <div class="filter-tabs">
-          <button class="ftab active" onclick="setFilter('todos',this)">Todos</button>
-          <button class="ftab" onclick="setFilter('novo',this)">Recebidos</button>
-          <button class="ftab" onclick="setFilter('andamento',this)">Andamento</button>
-          <button class="ftab" onclick="setFilter('enviado',this)">Enviados</button>
-          <button class="ftab" onclick="setFilter('resolvido',this)">Concluídos</button>
+          <button class="ftab active" data-filter="todos">Todos</button>
+          <button class="ftab" data-filter="novo">Recebidos</button>
+          <button class="ftab" data-filter="andamento">Andamento</button>
+          <button class="ftab" data-filter="enviado">Enviados</button>
+          <button class="ftab" data-filter="resolvido">Concluidos</button>
         </div>
       </div>
       <div id="chamados-list"></div>
     </div>
     <div class="detail" id="detail-panel">
-      <div class="detail-empty"><div class="de-icon">📋</div><p>Selecione um chamado na lista ao lado.</p></div>
+      <div class="detail-empty">
+        <div class="de-icon">&#128203;</div>
+        <p>Selecione um chamado na lista.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -477,432 +439,396 @@ footer{border-top:1px solid var(--line);padding:28px 48px;display:flex;justify-c
 <div class="toast" id="toast"></div>
 
 <script>
-// -- CONFIG --
-const ADMIN_PASS = 'solvo2026';
-const WA_NUMBER = '5551999764941';
-// CALLMEBOT: para ativar as notificações no seu WhatsApp:
-// 1. Salva o contato +34 644 66 08 98
-// 2. Manda "I allow callmebot to send me messages" para esse contato no WhatsApp
-// 3. Você receberá sua API key na resposta
-// 4. Substitui 'SUA_API_KEY' abaixo pela key recebida e sobe o arquivo no GitHub
-const CALLMEBOT_KEY = '3861399';
+var ADMIN_PASS = 'solvo2026';
+var WA_NUMBER = '5551999764941';
+var CALLMEBOT_KEY = '3861399';
 
-// -- STATE --
-let currentFilter = 'todos';
-let currentChamado = null;
-let chamados = [];
-let mediaRecorder = null;
-let audioChunks = [];
-let recTimerInterval = null;
-let recSeconds = 0;
-let audioBlob = null;
-let transcricaoFinal = '';
-let _docBase64 = null;
-let _docNome = null;
+var currentFilter = 'todos';
+var currentChamado = null;
+var chamados = [];
+var mediaRecorder = null;
+var audioChunks = [];
+var recTimerInterval = null;
+var recSeconds = 0;
+var audioBlob = null;
+var transcricaoFinal = '';
 
-// -- STORAGE --
-function saveChamados(){localStorage.setItem('solvo_chamados',JSON.stringify(chamados));}
-function loadChamados(){const r=localStorage.getItem('solvo_chamados');chamados=r?JSON.parse(r):[];}
+function saveChamados() { localStorage.setItem('solvo_chamados', JSON.stringify(chamados)); }
+function loadChamados() { var r = localStorage.getItem('solvo_chamados'); chamados = r ? JSON.parse(r) : []; }
 
-// -- PAGES --
-function showPublic(){
-  document.getElementById('public-page').classList.remove('hidden');
-  document.getElementById('login-page').classList.add('hidden');
-  document.getElementById('admin-page').classList.add('hidden');
-  document.getElementById('consulta-page').classList.add('hidden');
+function showPage(id) {
+  ['public-page','consulta-page','login-page','admin-page'].forEach(function(p) {
+    document.getElementById(p).classList.add('hidden');
+  });
+  document.getElementById(id).classList.remove('hidden');
 }
-function showConsulta(){
-  document.getElementById('public-page').classList.add('hidden');
-  document.getElementById('login-page').classList.add('hidden');
-  document.getElementById('admin-page').classList.add('hidden');
-  document.getElementById('consulta-page').classList.remove('hidden');
+
+function showPublic() { showPage('public-page'); }
+function showConsulta() {
+  showPage('consulta-page');
   document.getElementById('consulta-result').classList.add('hidden');
-  document.getElementById('consulta-num').value='';
-  setTimeout(()=>document.getElementById('consulta-num').focus(),100);
+  document.getElementById('consulta-num').value = '';
+  setTimeout(function(){ document.getElementById('consulta-num').focus(); }, 100);
 }
-function showLogin(){
-  document.getElementById('public-page').classList.add('hidden');
-  document.getElementById('login-page').classList.remove('hidden');
-  document.getElementById('admin-page').classList.add('hidden');
-  document.getElementById('consulta-page').classList.add('hidden');
-  document.getElementById('login-senha').value='';
-  document.getElementById('login-err').style.display='none';
-  setTimeout(()=>document.getElementById('login-senha').focus(),100);
+function showLogin() {
+  showPage('login-page');
+  document.getElementById('login-senha').value = '';
+  document.getElementById('login-err').style.display = 'none';
+  setTimeout(function(){ document.getElementById('login-senha').focus(); }, 100);
 }
-function showAdmin(){
-  document.getElementById('public-page').classList.add('hidden');
-  document.getElementById('login-page').classList.add('hidden');
-  document.getElementById('admin-page').classList.remove('hidden');
-  document.getElementById('consulta-page').classList.add('hidden');
-  loadChamados();renderList();updateBadge();
+function showAdmin() {
+  showPage('admin-page');
+  loadChamados();
+  renderList();
+  updateBadge();
 }
 
-// -- AUTH --
-function doLogin(){
-  if(document.getElementById('login-senha').value===ADMIN_PASS){
-    sessionStorage.setItem('solvo_auth','1');showAdmin();
+function doLogin() {
+  if (document.getElementById('login-senha').value === ADMIN_PASS) {
+    sessionStorage.setItem('solvo_auth', '1');
+    showAdmin();
   } else {
-    document.getElementById('login-err').style.display='block';
+    document.getElementById('login-err').style.display = 'block';
   }
 }
-function doLogout(){sessionStorage.removeItem('solvo_auth');showPublic();}
 
-// -- AUDIO RECORDER --
-async function startRecording(){
-  try{
-    const stream = await navigator.mediaDevices.getUserMedia({audio:true});
-    audioChunks=[];
+function doLogout() {
+  sessionStorage.removeItem('solvo_auth');
+  showPublic();
+}
+
+// AUDIO
+document.getElementById('rec-start-btn').addEventListener('click', startRecording);
+document.getElementById('rec-stop-btn').addEventListener('click', stopRecording);
+document.getElementById('btn-remove-audio').addEventListener('click', removeAudio);
+
+function startRecording() {
+  navigator.mediaDevices.getUserMedia({audio: true}).then(function(stream) {
+    audioChunks = [];
     mediaRecorder = new MediaRecorder(stream);
-    mediaRecorder.ondataavailable = e => { if(e.data.size>0) audioChunks.push(e.data); };
-    mediaRecorder.onstop = async () => {
-      audioBlob = new Blob(audioChunks, {type:'audio/webm'});
-      const url = URL.createObjectURL(audioBlob);
+    mediaRecorder.ondataavailable = function(e) { if (e.data.size > 0) audioChunks.push(e.data); };
+    mediaRecorder.onstop = function() {
+      audioBlob = new Blob(audioChunks, {type: 'audio/webm'});
+      var url = URL.createObjectURL(audioBlob);
       document.getElementById('audio-playback').src = url;
       document.getElementById('audio-preview-wrap').classList.remove('hidden');
-      stream.getTracks().forEach(t=>t.stop());
-      await transcreverAudio(audioBlob);
+      stream.getTracks().forEach(function(t){ t.stop(); });
+      transcreverAudio(audioBlob);
     };
     mediaRecorder.start();
-    recSeconds=0;
+    recSeconds = 0;
     document.getElementById('rec-start-btn').classList.add('hidden');
     document.getElementById('rec-stop-btn').classList.remove('hidden');
     document.getElementById('rec-timer').classList.remove('hidden');
-    document.getElementById('rec-status').textContent='Gravando... fale seu problema.';
-    recTimerInterval = setInterval(()=>{
+    document.getElementById('rec-status').textContent = 'Gravando...';
+    recTimerInterval = setInterval(function() {
       recSeconds++;
-      const m=String(Math.floor(recSeconds/60)).padStart(2,'0');
-      const s=String(recSeconds%60).padStart(2,'0');
-      document.getElementById('rec-timer').textContent=m+':'+s;
-    },1000);
-  } catch(e){
-    showToast('⚠️ Permita o acesso ao microfone para gravar');
-  }
+      var m = String(Math.floor(recSeconds/60)).padStart(2,'0');
+      var s = String(recSeconds%60).padStart(2,'0');
+      document.getElementById('rec-timer').textContent = m+':'+s;
+    }, 1000);
+  }).catch(function() {
+    showToast('Permita o acesso ao microfone');
+  });
 }
 
-function stopRecording(){
-  if(mediaRecorder && mediaRecorder.state!=='inactive'){
+function stopRecording() {
+  if (mediaRecorder && mediaRecorder.state !== 'inactive') {
     mediaRecorder.stop();
     clearInterval(recTimerInterval);
     document.getElementById('rec-stop-btn').classList.add('hidden');
     document.getElementById('rec-timer').classList.add('hidden');
     document.getElementById('rec-start-btn').classList.remove('hidden');
-    document.getElementById('rec-status').textContent='Áudio gravado ✓';
+    document.getElementById('rec-status').textContent = 'Audio gravado';
   }
 }
 
-function removeAudio(){
-  audioBlob=null;transcricaoFinal='';
+function removeAudio() {
+  audioBlob = null;
+  transcricaoFinal = '';
   document.getElementById('audio-preview-wrap').classList.add('hidden');
   document.getElementById('transcription-result').classList.add('hidden');
   document.getElementById('transcribing-wrap').classList.add('hidden');
-  document.getElementById('rec-status').textContent='Clique para gravar sua situação em voz';
+  document.getElementById('rec-status').textContent = 'Clique para gravar';
 }
 
-async function transcreverAudio(blob){
+function transcreverAudio(blob) {
   document.getElementById('transcribing-wrap').classList.remove('hidden');
   document.getElementById('transcription-result').classList.add('hidden');
-  try{
-    // converte para base64
-    const base64 = await new Promise((res,rej)=>{
-      const r=new FileReader();
-      r.onload=()=>res(r.result.split(',')[1]);
-      r.onerror=rej;
-      r.readAsDataURL(blob);
-    });
-
-    const resp = await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var base64 = e.target.result.split(',')[1];
+    fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        system:'Você é um assistente de transcrição. Transcreva o áudio do usuário com precisão, corrigindo apenas erros gramaticais óbvios. Mantenha a linguagem natural e informal do falante. Responda APENAS com a transcrição, sem comentários adicionais.',
-        messages:[{
-          role:'user',
-          content:[
-            {type:'text',text:'Transcreva este áudio de um cliente descrevendo um problema jurídico:'},
-            {type:'document',source:{type:'base64',media_type:'audio/webm',data:base64}}
-          ]
-        }]
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: 'Transcreva o audio com precisao. Responda APENAS com a transcricao, sem comentarios.',
+        messages: [{role:'user', content:[
+          {type:'text', text:'Transcreva este audio:'},
+          {type:'document', source:{type:'base64', media_type:'audio/webm', data:base64}}
+        ]}]
       })
+    }).then(function(r){ return r.json(); }).then(function(data) {
+      var texto = (data.content && data.content[0] && data.content[0].text) ? data.content[0].text : '';
+      transcricaoFinal = texto;
+      document.getElementById('transcription-text').textContent = texto;
+      document.getElementById('transcribing-wrap').classList.add('hidden');
+      document.getElementById('transcription-result').classList.remove('hidden');
+      var ta = document.getElementById('f-problema');
+      if (!ta.value.trim()) ta.value = texto;
+    }).catch(function() {
+      document.getElementById('transcribing-wrap').classList.add('hidden');
+      showToast('Nao foi possivel transcrever. Edite o texto abaixo.');
     });
-
-    if(!resp.ok) throw new Error('API error');
-    const data = await resp.json();
-    const texto = data.content?.[0]?.text || '';
-
-    transcricaoFinal = texto;
-    document.getElementById('transcription-text').textContent = texto;
-    document.getElementById('transcribing-wrap').classList.add('hidden');
-    document.getElementById('transcription-result').classList.remove('hidden');
-
-    // preenche o textarea com a transcrição se estiver vazio
-    const ta = document.getElementById('f-problema');
-    if(!ta.value.trim()) ta.value = texto;
-
-  } catch(e){
-    document.getElementById('transcribing-wrap').classList.add('hidden');
-    showToast('⚠️ Não foi possível transcrever. O texto do áudio foi preservado — edite manualmente abaixo.');
-  }
+  };
+  reader.readAsDataURL(blob);
 }
 
-// -- FORM --
-function submitForm(){
-  const nome = document.getElementById('f-nome').value.trim();
-  const tel  = document.getElementById('f-tel').value.trim();
-  const prob = document.getElementById('f-problema').value.trim();
-  const termos = document.getElementById('f-termos').checked;
+// FORM
+document.getElementById('btn-enviar').addEventListener('click', submitForm);
 
-  if(!nome){showToast('⚠️ Informe seu nome');return;}
-  if(!tel){showToast('⚠️ Informe seu WhatsApp');return;}
-  if(!prob&&!transcricaoFinal){showToast('⚠️ Descreva o problema ou grave um áudio');return;}
-  if(!termos){showToast('⚠️ Aceite os termos para continuar');return;}
-
+function submitForm() {
+  var nome = document.getElementById('f-nome').value.trim();
+  var tel = document.getElementById('f-tel').value.trim();
+  var prob = document.getElementById('f-problema').value.trim();
+  var termos = document.getElementById('f-termos').checked;
+  if (!nome) { showToast('Informe seu nome'); return; }
+  if (!tel) { showToast('Informe seu WhatsApp'); return; }
+  if (!prob && !transcricaoFinal) { showToast('Descreva o problema ou grave um audio'); return; }
+  if (!termos) { showToast('Aceite os termos para continuar'); return; }
   loadChamados();
-  const num=String(chamados.length+1).padStart(4,'0');
-  const novo={
-    id:num, nome, tel,
+  var num = String(chamados.length + 1).padStart(4, '0');
+  var novo = {
+    id: num, nome: nome, tel: tel,
     problema: prob || transcricaoFinal,
     transcricao: transcricaoFinal || null,
     temAudio: !!audioBlob,
-    status:'novo',
-    createdAt:new Date().toISOString(),
-    msgs:[],
-    lido:false
+    status: 'novo',
+    createdAt: new Date().toISOString(),
+    lido: false
   };
   chamados.unshift(novo);
   saveChamados();
   enviarNotificacao(novo);
-
-  document.getElementById('success-num').textContent='#'+num;
+  document.getElementById('success-num').textContent = '#' + num;
   document.getElementById('form-wrap').classList.add('hidden');
   document.getElementById('success-wrap').classList.remove('hidden');
 }
 
-function novoEnvio(){
-  document.getElementById('f-nome').value='';
-  document.getElementById('f-tel').value='';
-  document.getElementById('f-problema').value='';
-  document.getElementById('f-termos').checked=false;
-  audioBlob=null;transcricaoFinal='';
+document.getElementById('btn-novo-envio').addEventListener('click', function() {
+  document.getElementById('f-nome').value = '';
+  document.getElementById('f-tel').value = '';
+  document.getElementById('f-problema').value = '';
+  document.getElementById('f-termos').checked = false;
+  audioBlob = null; transcricaoFinal = '';
   removeAudio();
   document.getElementById('form-wrap').classList.remove('hidden');
   document.getElementById('success-wrap').classList.add('hidden');
+});
+
+document.getElementById('btn-ir-consulta').addEventListener('click', showConsulta);
+
+// NOTIFICACAO
+function enviarNotificacao(c) {
+  var msg = encodeURIComponent('Solvo - Chamado #' + c.id + ' - ' + c.nome + ' - ' + c.tel + ' - ' + (c.problema || '').substring(0, 100));
+  var url = 'https://api.callmebot.com/whatsapp.php?phone=' + WA_NUMBER + '&text=' + msg + '&apikey=' + CALLMEBOT_KEY;
+  var img = new Image();
+  img.src = url;
 }
 
-// -- NOTIFICAÇÃO --
-function enviarNotificacao(c){
-  const msg=encodeURIComponent('🔔 *Solvo — Chamado #'+c.id+'*\n👤 '+c.nome+'\n📱 '+c.tel+'\n📝 '+(c.problema||'').substring(0,200));
-  const url='https://api.callmebot.com/whatsapp.php?phone='+WA_NUMBER+'&text='+msg+'&apikey='+CALLMEBOT_KEY;
-  fetch(url).catch(()=>{});
-  // fallback via img tag (contorna bloqueio de CORS)
-  const img=new Image();
-  img.src=url;
-}
+// CONSULTA
+document.getElementById('btn-buscar').addEventListener('click', buscarChamado);
+document.getElementById('consulta-num').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') buscarChamado();
+});
 
-// -- ADMIN LIST --
-function setFilter(f,btn){
-  currentFilter=f;
-  document.querySelectorAll('.ftab').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  currentChamado=null;
-  document.getElementById('detail-panel').innerHTML='<div class="detail-empty"><div class="de-icon">📋<\/div><p>Selecione um chamado na lista ao lado.<\/p><\/div>';
-  renderList();
-}
-
-function renderList(){
+function buscarChamado() {
+  var num = document.getElementById('consulta-num').value.trim().padStart(4, '0');
   loadChamados();
-  const filtered=currentFilter==='todos'?chamados:chamados.filter(c=>c.status===currentFilter);
-  const el=document.getElementById('chamados-list');
-  if(!filtered.length){el.innerHTML='<div class="empty-state"><div class="es-icon">📭<\/div><p>Nenhum chamado aqui.<\/p><\/div>';return;}
-  const labels={novo:'Recebido',andamento:'Em andamento',enviado:'Parecer enviado',resolvido:'Concluído'};
-  el.innerHTML=filtered.map(c=>{
-    const dt=new Date(c.createdAt);
-    const hora=dt.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
-    const data=dt.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'});
-    const audioIco = c.temAudio ? '🎙 ' : '';
-    return `<div class="chamado-item${c.id===currentChamado?' active':''}${!c.lido?' unread':''}" onclick="openChamado('${c.id}')">
-      <div class="ci-top"><span class="ci-num">#${c.id}<\/span><span class="ci-time">${data} ${hora}<\/span><\/div>
-      <div class="ci-name">${esc(c.nome)}<\/div>
-      <div class="ci-preview">${audioIco}${esc(c.problema)}<\/div>
-      <div class="ci-status"><span class="status-dot dot-${c.status}"><\/span>${labels[c.status]}<\/div>
-    <\/div>`;
-  }).join('');
-}
-
-function updateBadge(){
-  loadChamados();
-  const n=chamados.filter(c=>!c.lido).length;
-  const b=document.getElementById('badge-count');
-  b.textContent=n;
-  b.classList.toggle('hidden',n===0);
-}
-
-function openChamado(id){
-  loadChamados();
-  const c=chamados.find(x=>x.id===id);
-  if(!c)return;
-  c.lido=true;currentChamado=id;
-  saveChamados();renderList();updateBadge();renderDetail(c);
-}
-
-// -- ADMIN DETAIL --
-function renderDetail(c){
-  const dt=new Date(c.createdAt);
-  const dataHora=dt.toLocaleString('pt-BR');
-  const labels={novo:'📥 Recebido',andamento:'🔄 Em andamento',enviado:'📨 Parecer enviado',resolvido:'✅ Concluído'};
-  const statusOpts=['novo','andamento','enviado','resolvido'].map(s=>
-    `<button class="status-pill sp-${s}" style="${c.status===s?'opacity:1;box-shadow:0 0 0 2px currentColor;':'opacity:0.6;'}" onclick="setStatus('${c.id}','${s}')">${labels[s]}</button>`
-  ).join('');
-  const audioBadge = c.temAudio ? `<div class="audio-badge">🎙 Enviado por áudio<\/div>` : '';
-  const transcricaoBox = c.transcricao ?
-    `<div class="transcricao-box"><strong>✦ Transcrição do áudio<\/strong>${esc(c.transcricao)}<\/div>` : '';
-  const waLink = 'https://wa.me/55'+c.tel.replace(/\D/g,'')+
-    '?text='+encodeURIComponent('Olá, '+c.nome+'! Recebi seu caso (#'+c.id+') pela Solvo e já estou analisando. Em breve te envio o parecer.');
-
-  document.getElementById('detail-panel').innerHTML=`
-    <div class="detail-header">
-      <div class="dh-left">
-        <h2>${esc(c.nome)}<\/h2>
-        <div class="dh-meta">#${c.id} · ${dataHora}<\/div>
-      <\/div>
-      <div class="dh-right">${statusOpts}<\/div>
-    <\/div>
-
-    <div class="info-grid">
-      <div class="info-box"><div class="ib-label">WhatsApp<\/div><div class="ib-val">${esc(c.tel)}<\/div><\/div>
-      <div class="info-box"><div class="ib-label">Status<\/div><div class="ib-val">${labels[c.status]}<\/div><\/div>
-    <\/div>
-
-    ${audioBadge}
-    ${transcricaoBox}
-
-    <div class="problema-box">
-      <div class="pb-label">// Problema descrito pelo cliente<\/div>
-      <div class="pb-text">${esc(c.problema)}<\/div>
-    <\/div>
-
-    <a href="${waLink}" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;text-decoration:none;padding:14px 24px;border-radius:10px;font-size:15px;font-weight:700;font-family:'Outfit',sans-serif;transition:all 0.2s;box-shadow:0 4px 16px rgba(37,211,102,0.3);">
-      💬 Responder no WhatsApp
-    <\/a>`;
-}
-
-// -- DOC UPLOAD ADMIN --
-function handleDocFile(input){
-  const f=input.files[0];
-  if(!f)return;
-  if(f.size>8*1024*1024){showToast('⚠️ Arquivo muito grande. Máximo 8MB.');return;}
-  _docNome=f.name;
-  document.getElementById('upload-doc-name-text').textContent=f.name;
-  document.getElementById('upload-doc-preview').classList.remove('hidden');
-  document.getElementById('upload-doc-area').classList.add('hidden');
-  const reader=new FileReader();
-  reader.onload=e=>{_docBase64=e.target.result;};
-  reader.readAsDataURL(f);
-}
-
-function handleDropDoc(e){
-  e.preventDefault();
-  document.getElementById('upload-doc-area').classList.remove('drag');
-  const f=e.dataTransfer.files[0];
-  if(f){
-    _docNome=f.name;
-    document.getElementById('upload-doc-name-text').textContent=f.name;
-    document.getElementById('upload-doc-preview').classList.remove('hidden');
-    document.getElementById('upload-doc-area').classList.add('hidden');
-    const reader=new FileReader();
-    reader.onload=ev=>{_docBase64=ev.target.result;};
-    reader.readAsDataURL(f);
-  }
-}
-
-function removeDoc(){
-  _docBase64=null;_docNome=null;
-  document.getElementById('upload-doc-preview').classList.add('hidden');
-  document.getElementById('upload-doc-area').classList.remove('hidden');
-  document.getElementById('rs-arquivo').value='';
-}
-
-// -- ADMIN ACTIONS --
-function setStatus(id,status){
-  loadChamados();
-  const c=chamados.find(x=>x.id===id);
-  if(!c)return;
-  c.status=status;saveChamados();renderList();renderDetail(c);
-  showToast('✅ Status: '+{novo:'Novo',andamento:'Em andamento',resolvido:'Resolvido'}[status]);
-}
-
-function entregarParecer(id){
-  const txt=document.getElementById('rs-text').value.trim();
-  if(!txt&&!_docBase64){showToast('⚠️ Escreva o parecer ou anexe um documento');return;}
-  loadChamados();
-  const c=chamados.find(x=>x.id===id);
-  if(!c)return;
-  const msg={tipo:'resposta',texto:txt||'Documento entregue.',at:new Date().toISOString()};
-  if(_docBase64&&_docNome){msg.docBase64=_docBase64;msg.docNome=_docNome;}
-  c.msgs.push(msg);
-  c.status='andamento';
-  _docBase64=null;_docNome=null;
-  saveChamados();renderList();renderDetail(c);
-  showToast(_docNome?'📄 Parecer e documento registrados!':'📄 Parecer registrado!');
-}
-
-function enviarCobranca(id){
-  loadChamados();
-  const c=chamados.find(x=>x.id===id);
-  if(!c)return;
-  const linkPix='https://nubank.com.br/cobrar/150';
-  c.msgs.push({tipo:'sistema',texto:'Link de pagamento enviado: R$150 — '+linkPix,at:new Date().toISOString()});
-  c.status='resolvido';
-  saveChamados();renderList();renderDetail(c);
-  showToast('💳 Cobrança registrada! Chamado resolvido.');
-}
-
-// -- UTILS --
-function esc(s){if(!s)return '';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-function showToast(msg,d=3200){const t=document.getElementById('toast');t.innerHTML=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),d);}
-
-// -- CONSULTA CLIENTE --
-function buscarChamado(){
-  const num = document.getElementById('consulta-num').value.trim().padStart(4,'0');
-  loadChamados();
-  const c = chamados.find(x=>x.id===num);
-  const res = document.getElementById('consulta-result');
-  const statusInfo = {
-    novo:     {icon:'📥', label:'Recebido',        desc:'Seu chamado foi recebido e está na fila de atendimento.',             color:'var(--accent)'},
-    andamento:{icon:'🔄', label:'Em andamento',    desc:'Um advogado está analisando o seu caso.',                             color:'var(--yellow)'},
-    enviado:  {icon:'📨', label:'Parecer enviado', desc:'O parecer foi enviado para o seu WhatsApp. Verifique sua conversa.',  color:'#ff8c00'},
-    resolvido:{icon:'✅', label:'Concluído',        desc:'Seu caso foi concluído. Obrigada por usar a Solvo!',                  color:'var(--accent3)'},
+  var c = chamados.find(function(x){ return x.id === num; });
+  var res = document.getElementById('consulta-result');
+  var info = {
+    novo:      {icon:'&#128228;', label:'Recebido',        desc:'Seu chamado foi recebido e esta na fila.', color:'var(--accent)'},
+    andamento: {icon:'&#128260;', label:'Em andamento',    desc:'Um advogado esta analisando seu caso.', color:'var(--yellow)'},
+    enviado:   {icon:'&#128232;', label:'Parecer enviado', desc:'O parecer foi enviado para seu WhatsApp.', color:'#ff8c00'},
+    resolvido: {icon:'&#10003;',  label:'Concluido',       desc:'Seu caso foi concluido. Obrigada pela confianca!', color:'var(--accent3)'}
   };
-  if(!c){
-    res.innerHTML = '<div style="text-align:center;color:var(--ink3);">'
-      + '<div style="font-size:36px;margin-bottom:12px;">🔍<\/div>'
-      + '<p style="font-size:15px;">Chamado <strong>#' + num + '<\/strong> não encontrado.<br>Verifique o número e tente novamente.<\/p>'
-      + '<\/div>';
+  if (!c) {
+    res.innerHTML = '<div style="text-align:center;color:var(--ink3);padding:20px;"><p>Chamado #' + num + ' nao encontrado. Verifique o numero.</p></div>';
     res.classList.remove('hidden');
     return;
   }
-  const s = statusInfo[c.status] || statusInfo['novo'];
-  const dt = new Date(c.createdAt).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'});
-  res.innerHTML = '<div style="text-align:center;margin-bottom:20px;">'
-    + '<div style="font-size:48px;margin-bottom:8px;">' + s.icon + '<\/div>'
-    + '<div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:' + s.color + ';font-family:JetBrains Mono,monospace;margin-bottom:6px;">' + s.label + '<\/div>'
-    + '<div style="font-size:14px;color:var(--ink2);line-height:1.6;">' + s.desc + '<\/div>'
-    + '<\/div>'
-    + '<div style="border-top:1px solid var(--line);padding-top:16px;margin-top:4px;">'
-    + '<div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink3);margin-bottom:6px;">'
-    + '<span>Chamado<\/span><span style="font-family:JetBrains Mono,monospace;font-weight:600;color:var(--ink);">#' + c.id + '<\/span>'
-    + '<\/div>'
-    + '<div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink3);">'
-    + '<span>Enviado em<\/span><span style="font-weight:500;color:var(--ink);">' + dt + '<\/span>'
-    + '<\/div>'
-    + '<\/div>';
+  var s = info[c.status] || info['novo'];
+  var dt = new Date(c.createdAt).toLocaleDateString('pt-BR');
+  var html = '<div style="text-align:center;margin-bottom:20px;">';
+  html += '<div style="font-size:48px;margin-bottom:8px;">' + s.icon + '</div>';
+  html += '<div style="font-size:13px;font-weight:700;color:' + s.color + ';margin-bottom:6px;">' + s.label + '</div>';
+  html += '<div style="font-size:14px;color:var(--ink2);line-height:1.6;">' + s.desc + '</div>';
+  html += '</div>';
+  html += '<div style="border-top:1px solid var(--line);padding-top:16px;">';
+  html += '<div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px;">';
+  html += '<span style="color:var(--ink3)">Chamado</span><span style="font-weight:700;color:var(--accent);font-family:monospace">#' + c.id + '</span>';
+  html += '</div>';
+  html += '<div style="display:flex;justify-content:space-between;font-size:13px;">';
+  html += '<span style="color:var(--ink3)">Enviado em</span><span style="font-weight:600">' + dt + '</span>';
+  html += '</div></div>';
+  res.innerHTML = html;
   res.classList.remove('hidden');
 }
 
-// -- INIT --
-if(sessionStorage.getItem('solvo_auth')==='1'){showAdmin();}else{showPublic();}
-setInterval(()=>{if(!document.getElementById('admin-page').classList.contains('hidden')){updateBadge();}},10000);
+// ADMIN LIST
+document.querySelectorAll('.ftab').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    currentFilter = this.dataset.filter;
+    document.querySelectorAll('.ftab').forEach(function(b){ b.classList.remove('active'); });
+    this.classList.add('active');
+    currentChamado = null;
+    document.getElementById('detail-panel').innerHTML = '<div class="detail-empty"><div class="de-icon">&#128203;</div><p>Selecione um chamado.</p></div>';
+    renderList();
+  });
+});
+
+function renderList() {
+  loadChamados();
+  var filtered = currentFilter === 'todos' ? chamados : chamados.filter(function(c){ return c.status === currentFilter; });
+  var el = document.getElementById('chamados-list');
+  if (!filtered.length) {
+    el.innerHTML = '<div class="empty-state"><div class="es-icon">&#128237;</div><p>Nenhum chamado aqui.</p></div>';
+    return;
+  }
+  var labels = {novo:'Recebido', andamento:'Em andamento', enviado:'Parecer enviado', resolvido:'Concluido'};
+  el.innerHTML = filtered.map(function(c) {
+    var dt = new Date(c.createdAt);
+    var hora = dt.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+    var data = dt.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'});
+    var ativo = c.id === currentChamado ? ' ativo' : '';
+    var nlido = !c.lido ? ' nao-lido' : '';
+    return '<div class="chamado-item' + ativo + nlido + '" data-id="' + c.id + '">'
+      + '<div class="ci-top"><span class="ci-num">#' + c.id + '</span><span class="ci-time">' + data + ' ' + hora + '</span></div>'
+      + '<div class="ci-name">' + esc(c.nome) + '</div>'
+      + '<div class="ci-preview">' + (c.temAudio ? 'audio: ' : '') + esc(c.problema) + '</div>'
+      + '<div class="ci-status"><span class="sdot sdot-' + c.status + '"></span>' + (labels[c.status] || c.status) + '</div>'
+      + '</div>';
+  }).join('');
+
+  el.querySelectorAll('.chamado-item').forEach(function(el) {
+    el.addEventListener('click', function() { openChamado(this.dataset.id); });
+  });
+}
+
+function updateBadge() {
+  loadChamados();
+  var n = chamados.filter(function(c){ return !c.lido; }).length;
+  var b = document.getElementById('badge-count');
+  b.textContent = n;
+  b.classList.toggle('hidden', n === 0);
+}
+
+function openChamado(id) {
+  loadChamados();
+  var c = chamados.find(function(x){ return x.id === id; });
+  if (!c) return;
+  c.lido = true;
+  currentChamado = id;
+  saveChamados();
+  renderList();
+  updateBadge();
+  renderDetail(c);
+}
+
+function renderDetail(c) {
+  var dt = new Date(c.createdAt).toLocaleString('pt-BR');
+  var labels = {novo:'Recebido', andamento:'Em andamento', enviado:'Parecer enviado', resolvido:'Concluido'};
+  var statusBtns = ['novo','andamento','enviado','resolvido'].map(function(s) {
+    var ativo = c.status === s ? 'font-weight:800;box-shadow:0 0 0 2px currentColor;' : 'opacity:0.55;';
+    return '<button class="spill spill-' + s + '" style="' + ativo + '" data-status="' + s + '">' + labels[s] + '</button>';
+  }).join('');
+
+  var waNum = '55' + c.tel.replace(/\D/g,'');
+  var waMsg = encodeURIComponent('Ola, ' + c.nome + '! Recebi seu caso (#' + c.id + ') pela Solvo e ja estou analisando. Em breve te envio o parecer.');
+  var waLink = 'https://wa.me/' + waNum + '?text=' + waMsg;
+
+  var audioHtml = c.temAudio ? '<div class="audio-badge">audio enviado</div>' : '';
+  var transcHtml = c.transcricao ? '<div class="transcricao-box"><strong>Transcricao do audio</strong>' + esc(c.transcricao) + '</div>' : '';
+
+  var panel = document.getElementById('detail-panel');
+  panel.innerHTML = '<div class="dh">'
+    + '<div class="dh-left"><h2>' + esc(c.nome) + '</h2><div class="dh-meta">#' + c.id + ' · ' + dt + ' · ' + esc(c.tel) + '</div></div>'
+    + '<div class="dh-right status-btns">' + statusBtns + '</div>'
+    + '</div>'
+    + '<div class="info-grid">'
+    + '<div class="info-box"><div class="ib-label">WhatsApp</div><div class="ib-val">' + esc(c.tel) + '</div></div>'
+    + '<div class="info-box"><div class="ib-label">Status</div><div class="ib-val">' + (labels[c.status] || c.status) + '</div></div>'
+    + '</div>'
+    + audioHtml
+    + transcHtml
+    + '<div class="pb"><div class="pb-label">Problema do cliente</div><div class="pb-text">' + esc(c.problema) + '</div></div>'
+    + '<div class="detail-actions">'
+    + '<a href="' + waLink + '" target="_blank" class="btn-wa">Responder no WhatsApp</a>'
+    + '<button class="btn-concluir" data-id="' + c.id + '">Marcar concluido</button>'
+    + '</div>';
+
+  panel.querySelectorAll('.spill').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      setStatus(c.id, this.dataset.status);
+    });
+  });
+
+  panel.querySelector('.btn-concluir').addEventListener('click', function() {
+    setStatus(this.dataset.id, 'resolvido');
+  });
+}
+
+function setStatus(id, status) {
+  loadChamados();
+  var c = chamados.find(function(x){ return x.id === id; });
+  if (!c) return;
+  c.status = status;
+  saveChamados();
+  renderList();
+  renderDetail(c);
+  var labels = {novo:'Recebido', andamento:'Em andamento', enviado:'Parecer enviado', resolvido:'Concluido'};
+  showToast('Status: ' + labels[status]);
+}
+
+function esc(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 3000);
+}
+
+// EVENTOS DE NAVEGACAO
+document.getElementById('btn-painel').addEventListener('click', showLogin);
+document.getElementById('logo-pub').addEventListener('click', function(e){ e.preventDefault(); showPublic(); });
+document.getElementById('logo-footer').addEventListener('click', function(e){ e.preventDefault(); showPublic(); });
+document.getElementById('logo-consulta').addEventListener('click', function(e){ e.preventDefault(); showPublic(); });
+document.getElementById('btn-voltar-consulta').addEventListener('click', showPublic);
+document.getElementById('btn-entrar').addEventListener('click', doLogin);
+document.getElementById('btn-voltar-login').addEventListener('click', showPublic);
+document.getElementById('btn-sair').addEventListener('click', doLogout);
+document.getElementById('link-consulta-footer').addEventListener('click', function(e){ e.preventDefault(); showConsulta(); });
+document.getElementById('login-senha').addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
+
+// INIT
+if (sessionStorage.getItem('solvo_auth') === '1') {
+  showAdmin();
+} else {
+  showPublic();
+}
+
+setInterval(function() {
+  if (!document.getElementById('admin-page').classList.contains('hidden')) {
+    updateBadge();
+  }
+}, 10000);
 </script>
 </body>
 </html>
