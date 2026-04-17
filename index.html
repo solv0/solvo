@@ -697,71 +697,38 @@ function renderDetail(c){
   const statusOpts=['novo','andamento','resolvido'].map(s=>
     `<button class="status-pill sp-${s}" onclick="setStatus('${c.id}','${s}')">${labels[s]}</button>`
   ).join('');
-
   const audioBadge = c.temAudio ? `<div class="audio-badge">🎙 Enviado por áudio</div>` : '';
   const transcricaoBox = c.transcricao ?
     `<div class="transcricao-box"><strong>✦ Transcrição do áudio</strong>${esc(c.transcricao)}</div>` : '';
-
-  const msgsHtml = c.msgs.length ? `<div class="msgs">${c.msgs.map(m=>{
-    let docHtml='';
-    if(m.docBase64&&m.docNome){
-      docHtml=`<div class="doc-entregue">
-        <div class="de-ico">📄</div>
-        <div class="de-info"><div class="de-title">${esc(m.docNome)}</div><div class="de-sub">Documento assinado · ${new Date(m.at).toLocaleString('pt-BR')}</div></div>
-        <a class="de-btn" href="${m.docBase64}" download="${esc(m.docNome)}">⬇ Baixar</a>
-      </div>`;
-    }
-    return `<div class="msg ${m.tipo==='resposta'?'msg-adv':'msg-sys'}">
-      ${m.tipo==='resposta'?'🧑‍⚖️ <strong>Advogado:</strong> ':'🔗 <strong>Sistema:</strong> '}${esc(m.texto)}
-      ${docHtml}
-      <div class="msg-time">${new Date(m.at).toLocaleString('pt-BR')}</div>
-    </div>`;
-  }).join('')}</div>` : '';
+  const waLink = 'https://wa.me/55'+c.tel.replace(/\D/g,'')+
+    '?text='+encodeURIComponent('Olá, '+c.nome+'! Recebi seu caso (#'+c.id+') pela Solvo e já estou analisando. Em breve te envio o parecer.');
 
   document.getElementById('detail-panel').innerHTML=`
     <div class="detail-header">
       <div class="dh-left">
         <h2>${esc(c.nome)}</h2>
-        <div class="dh-meta">#${c.id} · ${dataHora} · ${esc(c.tel)}</div>
+        <div class="dh-meta">#${c.id} · ${dataHora}</div>
       </div>
       <div class="dh-right">${statusOpts}</div>
     </div>
+
     <div class="info-grid">
       <div class="info-box"><div class="ib-label">WhatsApp</div><div class="ib-val">${esc(c.tel)}</div></div>
       <div class="info-box"><div class="ib-label">Status</div><div class="ib-val">${labels[c.status]}</div></div>
     </div>
+
     ${audioBadge}
     ${transcricaoBox}
+
     <div class="problema-box">
       <div class="pb-label">// Problema descrito pelo cliente</div>
       <div class="pb-text">${esc(c.problema)}</div>
     </div>
-    ${msgsHtml}
-    <div class="resposta-section">
-      <div class="rs-label">// Parecer e documento assinado</div>
-      <textarea class="rs-textarea" id="rs-text" placeholder="Digite o parecer, orientação ou observações para o cliente..."></textarea>
 
-      <div class="upload-doc-area" id="upload-doc-area"
-        onclick="document.getElementById('rs-arquivo').click()"
-        ondragover="event.preventDefault();this.classList.add('drag')"
-        ondragleave="this.classList.remove('drag')"
-        ondrop="handleDropDoc(event)">
-        <span style="font-size:22px;display:block;margin-bottom:6px;">📎</span>
-        Anexar documento assinado (PDF)
-        <div style="font-size:11px;margin-top:3px;opacity:0.7;">Clique ou arraste o arquivo aqui</div>
-        <input type="file" id="rs-arquivo" accept=".pdf,.png,.jpg,.jpeg" onchange="handleDocFile(this)">
-      </div>
-      <div class="hidden upload-doc-preview" id="upload-doc-preview">
-        <span>📄</span>
-        <span id="upload-doc-name-text"></span>
-        <button class="rm-doc" onclick="removeDoc()">✕</button>
-      </div>
-
-      <div class="rs-actions">
-        <button class="btn-entregar" onclick="entregarParecer('${c.id}')">📄 Registrar entrega</button>
-        <button class="btn-cobrar" onclick="enviarCobranca('${c.id}')">💳 Enviar cobrança</button>
-      </div>
-    </div>`;
+    <a href="${waLink}" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;text-decoration:none;padding:14px 24px;border-radius:10px;font-size:15px;font-weight:700;font-family:'Outfit',sans-serif;transition:all 0.2s;box-shadow:0 4px 16px rgba(37,211,102,0.3);">
+      💬 Responder no WhatsApp
+    </a>`;
+}
 }
 
 // ── DOC UPLOAD ADMIN ──
