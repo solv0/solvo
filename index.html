@@ -477,7 +477,7 @@ footer{border-top:1px solid var(--line);padding:28px 48px;display:flex;justify-c
 <div class="toast" id="toast"></div>
 
 <script>
-// ── CONFIG ──
+// -- CONFIG --
 const ADMIN_PASS = 'solvo2026';
 const WA_NUMBER = '5551999764941';
 // CALLMEBOT: para ativar as notificações no seu WhatsApp:
@@ -487,7 +487,7 @@ const WA_NUMBER = '5551999764941';
 // 4. Substitui 'SUA_API_KEY' abaixo pela key recebida e sobe o arquivo no GitHub
 const CALLMEBOT_KEY = '3861399';
 
-// ── STATE ──
+// -- STATE --
 let currentFilter = 'todos';
 let currentChamado = null;
 let chamados = [];
@@ -500,11 +500,11 @@ let transcricaoFinal = '';
 let _docBase64 = null;
 let _docNome = null;
 
-// ── STORAGE ──
+// -- STORAGE --
 function saveChamados(){localStorage.setItem('solvo_chamados',JSON.stringify(chamados));}
 function loadChamados(){const r=localStorage.getItem('solvo_chamados');chamados=r?JSON.parse(r):[];}
 
-// ── PAGES ──
+// -- PAGES --
 function showPublic(){
   document.getElementById('public-page').classList.remove('hidden');
   document.getElementById('login-page').classList.add('hidden');
@@ -537,7 +537,7 @@ function showAdmin(){
   loadChamados();renderList();updateBadge();
 }
 
-// ── AUTH ──
+// -- AUTH --
 function doLogin(){
   if(document.getElementById('login-senha').value===ADMIN_PASS){
     sessionStorage.setItem('solvo_auth','1');showAdmin();
@@ -547,7 +547,7 @@ function doLogin(){
 }
 function doLogout(){sessionStorage.removeItem('solvo_auth');showPublic();}
 
-// ── AUDIO RECORDER ──
+// -- AUDIO RECORDER --
 async function startRecording(){
   try{
     const stream = await navigator.mediaDevices.getUserMedia({audio:true});
@@ -646,7 +646,7 @@ async function transcreverAudio(blob){
   }
 }
 
-// ── FORM ──
+// -- FORM --
 function submitForm(){
   const nome = document.getElementById('f-nome').value.trim();
   const tel  = document.getElementById('f-tel').value.trim();
@@ -690,7 +690,7 @@ function novoEnvio(){
   document.getElementById('success-wrap').classList.add('hidden');
 }
 
-// ── NOTIFICAÇÃO ──
+// -- NOTIFICAÇÃO --
 function enviarNotificacao(c){
   const msg=encodeURIComponent('🔔 *Solvo — Chamado #'+c.id+'*\n👤 '+c.nome+'\n📱 '+c.tel+'\n📝 '+(c.problema||'').substring(0,200));
   const url='https://api.callmebot.com/whatsapp.php?phone='+WA_NUMBER+'&text='+msg+'&apikey='+CALLMEBOT_KEY;
@@ -700,13 +700,13 @@ function enviarNotificacao(c){
   img.src=url;
 }
 
-// ── ADMIN LIST ──
+// -- ADMIN LIST --
 function setFilter(f,btn){
   currentFilter=f;
   document.querySelectorAll('.ftab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   currentChamado=null;
-  document.getElementById('detail-panel').innerHTML='<div class="detail-empty"><div class="de-icon">📋</div><p>Selecione um chamado na lista ao lado.</p></div>';
+  document.getElementById('detail-panel').innerHTML='<div class="detail-empty"><div class="de-icon">📋<\/div><p>Selecione um chamado na lista ao lado.<\/p><\/div>';
   renderList();
 }
 
@@ -714,7 +714,7 @@ function renderList(){
   loadChamados();
   const filtered=currentFilter==='todos'?chamados:chamados.filter(c=>c.status===currentFilter);
   const el=document.getElementById('chamados-list');
-  if(!filtered.length){el.innerHTML='<div class="empty-state"><div class="es-icon">📭</div><p>Nenhum chamado aqui.</p></div>';return;}
+  if(!filtered.length){el.innerHTML='<div class="empty-state"><div class="es-icon">📭<\/div><p>Nenhum chamado aqui.<\/p><\/div>';return;}
   const labels={novo:'Recebido',andamento:'Em andamento',enviado:'Parecer enviado',resolvido:'Concluído'};
   el.innerHTML=filtered.map(c=>{
     const dt=new Date(c.createdAt);
@@ -722,11 +722,11 @@ function renderList(){
     const data=dt.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'});
     const audioIco = c.temAudio ? '🎙 ' : '';
     return `<div class="chamado-item${c.id===currentChamado?' active':''}${!c.lido?' unread':''}" onclick="openChamado('${c.id}')">
-      <div class="ci-top"><span class="ci-num">#${c.id}</span><span class="ci-time">${data} ${hora}</span></div>
-      <div class="ci-name">${esc(c.nome)}</div>
-      <div class="ci-preview">${audioIco}${esc(c.problema)}</div>
-      <div class="ci-status"><span class="status-dot dot-${c.status}"></span>${labels[c.status]}</div>
-    </div>`;
+      <div class="ci-top"><span class="ci-num">#${c.id}<\/span><span class="ci-time">${data} ${hora}<\/span><\/div>
+      <div class="ci-name">${esc(c.nome)}<\/div>
+      <div class="ci-preview">${audioIco}${esc(c.problema)}<\/div>
+      <div class="ci-status"><span class="status-dot dot-${c.status}"><\/span>${labels[c.status]}<\/div>
+    <\/div>`;
   }).join('');
 }
 
@@ -746,7 +746,7 @@ function openChamado(id){
   saveChamados();renderList();updateBadge();renderDetail(c);
 }
 
-// ── ADMIN DETAIL ──
+// -- ADMIN DETAIL --
 function renderDetail(c){
   const dt=new Date(c.createdAt);
   const dataHora=dt.toLocaleString('pt-BR');
@@ -754,41 +754,40 @@ function renderDetail(c){
   const statusOpts=['novo','andamento','enviado','resolvido'].map(s=>
     `<button class="status-pill sp-${s}" style="${c.status===s?'opacity:1;box-shadow:0 0 0 2px currentColor;':'opacity:0.6;'}" onclick="setStatus('${c.id}','${s}')">${labels[s]}</button>`
   ).join('');
-  const audioBadge = c.temAudio ? `<div class="audio-badge">🎙 Enviado por áudio</div>` : '';
+  const audioBadge = c.temAudio ? `<div class="audio-badge">🎙 Enviado por áudio<\/div>` : '';
   const transcricaoBox = c.transcricao ?
-    `<div class="transcricao-box"><strong>✦ Transcrição do áudio</strong>${esc(c.transcricao)}</div>` : '';
+    `<div class="transcricao-box"><strong>✦ Transcrição do áudio<\/strong>${esc(c.transcricao)}<\/div>` : '';
   const waLink = 'https://wa.me/55'+c.tel.replace(/\D/g,'')+
     '?text='+encodeURIComponent('Olá, '+c.nome+'! Recebi seu caso (#'+c.id+') pela Solvo e já estou analisando. Em breve te envio o parecer.');
 
   document.getElementById('detail-panel').innerHTML=`
     <div class="detail-header">
       <div class="dh-left">
-        <h2>${esc(c.nome)}</h2>
-        <div class="dh-meta">#${c.id} · ${dataHora}</div>
-      </div>
-      <div class="dh-right">${statusOpts}</div>
-    </div>
+        <h2>${esc(c.nome)}<\/h2>
+        <div class="dh-meta">#${c.id} · ${dataHora}<\/div>
+      <\/div>
+      <div class="dh-right">${statusOpts}<\/div>
+    <\/div>
 
     <div class="info-grid">
-      <div class="info-box"><div class="ib-label">WhatsApp</div><div class="ib-val">${esc(c.tel)}</div></div>
-      <div class="info-box"><div class="ib-label">Status</div><div class="ib-val">${labels[c.status]}</div></div>
-    </div>
+      <div class="info-box"><div class="ib-label">WhatsApp<\/div><div class="ib-val">${esc(c.tel)}<\/div><\/div>
+      <div class="info-box"><div class="ib-label">Status<\/div><div class="ib-val">${labels[c.status]}<\/div><\/div>
+    <\/div>
 
     ${audioBadge}
     ${transcricaoBox}
 
     <div class="problema-box">
-      <div class="pb-label">// Problema descrito pelo cliente</div>
-      <div class="pb-text">${esc(c.problema)}</div>
-    </div>
+      <div class="pb-label">// Problema descrito pelo cliente<\/div>
+      <div class="pb-text">${esc(c.problema)}<\/div>
+    <\/div>
 
     <a href="${waLink}" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;text-decoration:none;padding:14px 24px;border-radius:10px;font-size:15px;font-weight:700;font-family:'Outfit',sans-serif;transition:all 0.2s;box-shadow:0 4px 16px rgba(37,211,102,0.3);">
       💬 Responder no WhatsApp
-    </a>`;
-}
+    <\/a>`;
 }
 
-// ── DOC UPLOAD ADMIN ──
+// -- DOC UPLOAD ADMIN --
 function handleDocFile(input){
   const f=input.files[0];
   if(!f)return;
@@ -824,7 +823,7 @@ function removeDoc(){
   document.getElementById('rs-arquivo').value='';
 }
 
-// ── ADMIN ACTIONS ──
+// -- ADMIN ACTIONS --
 function setStatus(id,status){
   loadChamados();
   const c=chamados.find(x=>x.id===id);
@@ -859,47 +858,49 @@ function enviarCobranca(id){
   showToast('💳 Cobrança registrada! Chamado resolvido.');
 }
 
-// ── UTILS ──
+// -- UTILS --
 function esc(s){if(!s)return '';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function showToast(msg,d=3200){const t=document.getElementById('toast');t.innerHTML=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),d);}
 
-// ── CONSULTA CLIENTE ──
+// -- CONSULTA CLIENTE --
 function buscarChamado(){
   const num = document.getElementById('consulta-num').value.trim().padStart(4,'0');
   loadChamados();
   const c = chamados.find(x=>x.id===num);
   const res = document.getElementById('consulta-result');
   const statusInfo = {
-    novo:    {icon:'📥', label:'Recebido',        desc:'Seu chamado foi recebido e está na fila de atendimento.',        color:'var(--accent)'},
-    andamento:{icon:'🔄', label:'Em andamento',    desc:'Um advogado está analisando o seu caso.',                        color:'var(--yellow)'},
-    enviado:  {icon:'📨', label:'Parecer enviado', desc:'O parecer foi enviado para o seu WhatsApp. Verifique sua conversa.', color:'#ff8c00'},
-    resolvido:{icon:'✅', label:'Concluído',        desc:'Seu caso foi concluído. Obrigada por usar a Solvo!',             color:'var(--accent3)'},
+    novo:     {icon:'📥', label:'Recebido',        desc:'Seu chamado foi recebido e está na fila de atendimento.',             color:'var(--accent)'},
+    andamento:{icon:'🔄', label:'Em andamento',    desc:'Um advogado está analisando o seu caso.',                             color:'var(--yellow)'},
+    enviado:  {icon:'📨', label:'Parecer enviado', desc:'O parecer foi enviado para o seu WhatsApp. Verifique sua conversa.',  color:'#ff8c00'},
+    resolvido:{icon:'✅', label:'Concluído',        desc:'Seu caso foi concluído. Obrigada por usar a Solvo!',                  color:'var(--accent3)'},
   };
   if(!c){
-    res.innerHTML=`<div style="text-align:center;color:var(--ink3);"><div style="font-size:36px;margin-bottom:12px;">🔍</div><p style="font-size:15px;">Chamado <strong>#${num}</strong> não encontrado.<br>Verifique o número e tente novamente.</p></div>`;
+    res.innerHTML = '<div style="text-align:center;color:var(--ink3);">'
+      + '<div style="font-size:36px;margin-bottom:12px;">🔍<\/div>'
+      + '<p style="font-size:15px;">Chamado <strong>#' + num + '<\/strong> não encontrado.<br>Verifique o número e tente novamente.<\/p>'
+      + '<\/div>';
     res.classList.remove('hidden');
     return;
   }
   const s = statusInfo[c.status] || statusInfo['novo'];
   const dt = new Date(c.createdAt).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'});
-  res.innerHTML=`
-    <div style="text-align:center;margin-bottom:20px;">
-      <div style="font-size:48px;margin-bottom:8px;">${s.icon}</div>
-      <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:${s.color};font-family:'JetBrains Mono',monospace;margin-bottom:6px;">${s.label}</div>
-      <div style="font-size:14px;color:var(--ink2);line-height:1.6;">${s.desc}</div>
-    </div>
-    <div style="border-top:1px solid var(--line);padding-top:16px;margin-top:4px;">
-      <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink3);margin-bottom:6px;">
-        <span>Chamado</span><span style="font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--ink);">#${c.id}</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink3);">
-        <span>Enviado em</span><span style="font-weight:500;color:var(--ink);">${dt}</span>
-      </div>
-    </div>`;
+  res.innerHTML = '<div style="text-align:center;margin-bottom:20px;">'
+    + '<div style="font-size:48px;margin-bottom:8px;">' + s.icon + '<\/div>'
+    + '<div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:' + s.color + ';font-family:JetBrains Mono,monospace;margin-bottom:6px;">' + s.label + '<\/div>'
+    + '<div style="font-size:14px;color:var(--ink2);line-height:1.6;">' + s.desc + '<\/div>'
+    + '<\/div>'
+    + '<div style="border-top:1px solid var(--line);padding-top:16px;margin-top:4px;">'
+    + '<div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink3);margin-bottom:6px;">'
+    + '<span>Chamado<\/span><span style="font-family:JetBrains Mono,monospace;font-weight:600;color:var(--ink);">#' + c.id + '<\/span>'
+    + '<\/div>'
+    + '<div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink3);">'
+    + '<span>Enviado em<\/span><span style="font-weight:500;color:var(--ink);">' + dt + '<\/span>'
+    + '<\/div>'
+    + '<\/div>';
   res.classList.remove('hidden');
 }
 
-// ── INIT ──
+// -- INIT --
 if(sessionStorage.getItem('solvo_auth')==='1'){showAdmin();}else{showPublic();}
 setInterval(()=>{if(!document.getElementById('admin-page').classList.contains('hidden')){updateBadge();}},10000);
 </script>
