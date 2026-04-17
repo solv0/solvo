@@ -3,832 +3,301 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solvo - Consultoria Jurídica Online</title>
+<title>Solvo — Consultoria Juridica Online</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#fff;--bg2:#f4f6ff;--ink:#0a0a14;--ink2:#3d3d52;--ink3:#8888a0;
   --accent:#3b3bff;--accent2:#7c3bff;--accent3:#00d4aa;
-  --red:#ff3b3b;--yellow:#ffb800;--green:#25d366;
   --line:#e8e8f0;--line2:rgba(59,59,255,0.12);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--ink);font-family:'Outfit',sans-serif;font-weight:400;overflow-x:hidden;}
-.hidden{display:none!important;}
-input,textarea,select,button{font-family:'Outfit',sans-serif;}
+input,textarea,button{font-family:'Outfit',sans-serif;}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .logo-mark{width:36px;height:36px;flex-shrink:0;}
 .logo-text{font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--ink);}
 .logo-text span{color:var(--accent);}
-.nav-admin-btn{font-size:13px;font-weight:500;color:var(--ink3);background:none;border:none;cursor:pointer;padding:8px 16px;border-radius:8px;transition:all 0.2s;}
-.nav-admin-btn:hover{background:var(--bg2);color:var(--accent);}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;transition:all 0.2s;box-shadow:0 4px 16px rgba(59,59,255,0.3);}
+.nav-cta:hover{background:#2828e0;transform:translateY(-1px);}
 
-/* PUBLIC */
-#public-page{padding-top:68px;}
-.hero-pub{max-width:680px;margin:0 auto;padding:80px 24px 60px;text-align:center;}
+/* HERO */
+.hero{padding:148px 48px 100px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center;}
 .badge{display:inline-flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--line2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:500;color:var(--accent);margin-bottom:28px;font-family:'JetBrains Mono',monospace;}
 .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--accent3);animation:blink 2s ease infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
-.hero-pub h1{font-size:clamp(36px,6vw,58px);font-weight:800;letter-spacing:-1.5px;line-height:1.08;margin-bottom:18px;}
+h1{font-size:clamp(40px,5.5vw,64px);font-weight:800;line-height:1.08;letter-spacing:-1.5px;color:var(--ink);margin-bottom:24px;}
 .grad{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-pub p{font-size:17px;color:var(--ink2);line-height:1.7;margin-bottom:48px;}
+.hero-sub{font-size:18px;color:var(--ink2);line-height:1.7;max-width:480px;margin-bottom:40px;}
+.btn-main{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;text-decoration:none;padding:18px 36px;border-radius:10px;font-size:17px;font-weight:700;transition:all 0.2s;box-shadow:0 8px 28px rgba(59,59,255,0.3);}
+.btn-main:hover{background:#2828e0;transform:translateY(-2px);box-shadow:0 12px 36px rgba(59,59,255,0.42);}
+.hero-note{margin-top:16px;font-size:12px;color:var(--ink3);font-family:'JetBrains Mono',monospace;}
 
-/* FORM */
-.form-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:40px;box-shadow:0 8px 40px rgba(59,59,255,0.07);max-width:600px;margin:0 auto 80px;text-align:left;}
-.form-card h2{font-size:20px;font-weight:700;letter-spacing:-0.4px;margin-bottom:6px;}
-.form-sub{font-size:14px;color:var(--ink3);margin-bottom:32px;}
-.field{margin-bottom:20px;}
-.field label{display:block;font-size:13px;font-weight:600;color:var(--ink2);margin-bottom:8px;}
-.field input,.field textarea{width:100%;padding:13px 16px;border:1.5px solid var(--line);border-radius:10px;font-size:15px;color:var(--ink);background:#fff;transition:border-color 0.2s,box-shadow 0.2s;outline:none;resize:vertical;}
-.field input:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,59,255,0.08);}
-.field textarea{min-height:120px;line-height:1.6;}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+/* HERO VISUAL */
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;height:400px;}
+.visual-glow{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(59,59,255,0.1) 0%,transparent 70%);pointer-events:none;}
+.visual-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;width:320px;box-shadow:0 24px 64px rgba(59,59,255,0.08),0 4px 16px rgba(0,0,0,0.06);position:relative;z-index:2;animation:float 4s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.vc-header{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+.vc-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;}
+.vc-name{font-weight:700;font-size:14px;color:var(--ink);}
+.vc-sub{font-size:11px;color:var(--ink3);}
+.vc-status{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:11px;color:var(--accent3);font-weight:600;}
+.vc-status::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent3);}
+.vc-msg{background:var(--bg2);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--ink2);line-height:1.6;margin-bottom:14px;border-left:3px solid var(--line2);}
+.vc-reply{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(59,59,255,0.05),rgba(124,59,255,0.04));border:1px solid var(--line2);border-radius:10px;padding:12px 14px;margin-bottom:14px;}
+.vc-reply-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.vc-reply-title{font-size:13px;font-weight:600;color:var(--ink);}
+.vc-reply-sub{font-size:11px;color:var(--ink3);}
+.vc-pay{display:flex;align-items:center;justify-content:space-between;}
+.vc-pay-label{font-size:11px;color:var(--ink3);}
+.vc-pay-val{font-size:22px;font-weight:800;color:var(--ink);}
+.vc-pay-val span{font-size:13px;font-weight:400;color:var(--ink3);}
+.vc-pay-btn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;}
+.visual-pill{position:absolute;background:#fff;border:1px solid var(--line);border-radius:100px;padding:8px 16px;font-size:12px;font-weight:600;color:var(--ink);box-shadow:0 4px 16px rgba(0,0,0,0.08);display:flex;align-items:center;gap:7px;z-index:3;}
+.vp1{top:24px;right:-10px;animation:float 3.5s ease-in-out 0.5s infinite;}
+.vp2{bottom:36px;left:-20px;animation:float 4.5s ease-in-out 1s infinite;}
+.vp-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.dot-green{background:var(--accent3);}
+.dot-purple{background:var(--accent2);}
 
-/* AUDIO */
-.audio-section{margin-bottom:20px;}
-.audio-label{font-size:13px;font-weight:600;color:var(--ink2);margin-bottom:10px;display:block;}
-.audio-or{text-align:center;font-size:12px;color:var(--ink3);margin:16px 0;position:relative;}
-.audio-or::before,.audio-or::after{content:'';position:absolute;top:50%;width:42%;height:1px;background:var(--line);}
-.audio-or::before{left:0;}
-.audio-or::after{right:0;}
-.recorder-box{border:1.5px solid var(--line);border-radius:12px;padding:20px;text-align:center;background:var(--bg2);}
-.rec-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;}
-.rec-btn-start{background:var(--accent);color:#fff;box-shadow:0 4px 16px rgba(59,59,255,0.28);}
-.rec-btn-start:hover{background:#2828e0;}
-.rec-btn-stop{background:var(--red);color:#fff;animation:pulse-red 1.2s ease infinite;}
-@keyframes pulse-red{0%,100%{box-shadow:0 0 0 0 rgba(255,59,59,0.4);}50%{box-shadow:0 0 0 8px rgba(255,59,59,0);}}
-.rec-timer{font-size:13px;color:var(--red);font-family:'JetBrains Mono',monospace;margin-top:10px;font-weight:600;}
-.rec-status{font-size:13px;color:var(--ink3);margin-top:8px;}
-.audio-preview{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--line2);border-radius:10px;padding:12px 16px;margin-top:12px;}
-.audio-preview audio{flex:1;height:36px;}
-.btn-remove-audio{background:none;border:none;color:var(--red);cursor:pointer;font-size:18px;padding:4px;line-height:1;}
-.transcription-box{margin-top:12px;padding:14px 16px;background:#fff;border:1.5px solid var(--accent);border-radius:10px;font-size:14px;color:var(--ink);line-height:1.7;}
-.transcription-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-family:'JetBrains Mono',monospace;}
-.transcribing-spinner{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--accent);padding:10px 0;}
-.spinner{width:16px;height:16px;border:2px solid var(--line2);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
+/* TICKER */
+.ticker{background:var(--ink);padding:14px 0;overflow:hidden;}
+.ticker-track{display:flex;animation:ticker 24s linear infinite;width:max-content;}
+.ticker-item{display:flex;align-items:center;gap:28px;padding:0 28px;font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);white-space:nowrap;font-family:'JetBrains Mono',monospace;}
+.ticker-sep{width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-/* TERMS */
-.terms-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:24px;}
-.terms-row input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent);flex-shrink:0;margin-top:2px;cursor:pointer;}
-.terms-row label{font-size:13px;color:var(--ink2);line-height:1.6;cursor:pointer;}
-.terms-row a{color:var(--accent);text-decoration:underline;}
+/* COMO FUNCIONA */
+.section-wrap{padding:100px 48px;max-width:1100px;margin:0 auto;}
+.section-eyebrow{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-family:'JetBrains Mono',monospace;}
+.section-title{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-1px;color:var(--ink);margin-bottom:56px;line-height:1.1;}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+.step-card{background:#fff;padding:40px 32px;transition:background 0.2s;}
+.step-card:hover{background:var(--bg2);}
+.step-n{font-size:11px;font-weight:600;letter-spacing:2px;color:var(--accent);margin-bottom:20px;font-family:'JetBrains Mono',monospace;}
+.step-icon{font-size:28px;margin-bottom:14px;display:block;}
+.step-card h3{font-size:18px;font-weight:700;letter-spacing:-0.3px;margin-bottom:10px;}
+.step-card p{font-size:14px;color:var(--ink2);line-height:1.7;}
 
-/* BUTTONS */
-.btn-submit{width:100%;padding:16px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s;box-shadow:0 8px 28px rgba(59,59,255,0.3);}
-.btn-submit:hover{background:#2828e0;transform:translateY(-1px);}
+/* PRODUTO */
+.produto-wrap{padding:0 48px 100px;max-width:1100px;margin:0 auto;}
+.produto-inner{background:var(--ink);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;position:relative;}
+.produto-inner::before{content:'';position:absolute;top:-100px;right:-100px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(59,59,255,0.2) 0%,transparent 70%);pointer-events:none;}
+.produto-left{padding:60px 52px;position:relative;z-index:1;}
+.produto-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:20px;font-family:'JetBrains Mono',monospace;}
+.produto-price{font-size:clamp(64px,9vw,96px);font-weight:800;letter-spacing:-3px;color:#fff;line-height:1;margin-bottom:6px;}
+.produto-price sup{font-size:0.36em;vertical-align:super;letter-spacing:0;color:rgba(255,255,255,0.45);font-weight:400;}
+.produto-per{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:28px;font-family:'JetBrains Mono',monospace;}
+.produto-desc{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:36px;}
+.produto-cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;text-decoration:none;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:700;transition:all 0.2s;box-shadow:0 8px 28px rgba(59,59,255,0.4);}
+.produto-cta:hover{background:#2828e0;transform:translateY(-2px);}
+.produto-right{padding:60px 52px;position:relative;z-index:1;border-left:1px solid rgba(255,255,255,0.06);}
+.entrega-title{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:28px;font-family:'JetBrains Mono',monospace;}
+.e-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.06);align-items:flex-start;}
+.e-item:last-child{border-bottom:none;}
+.e-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;background:rgba(59,59,255,0.18);}
+.e-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:3px;}
+.e-sub{font-size:12px;color:rgba(255,255,255,0.38);line-height:1.5;}
 
-/* SUCCESS */
-.success-card{background:linear-gradient(135deg,rgba(59,59,255,0.04),rgba(124,59,255,0.04));border:1.5px solid var(--line2);border-radius:20px;padding:48px 40px;text-align:center;max-width:500px;margin:0 auto 80px;}
-.success-icon{font-size:52px;margin-bottom:16px;}
-.success-card h3{font-size:24px;font-weight:800;letter-spacing:-0.5px;margin-bottom:10px;}
-.success-card p{font-size:15px;color:var(--ink2);line-height:1.7;}
-.chamado-num{margin-top:20px;display:inline-block;background:var(--ink);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:14px;padding:10px 20px;border-radius:8px;letter-spacing:1px;}
-
-/* HOW */
-.how{padding:0 24px 100px;max-width:900px;margin:0 auto;}
-.eyebrow{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-family:'JetBrains Mono',monospace;}
-.how h2{font-size:clamp(26px,4vw,36px);font-weight:800;letter-spacing:-0.8px;margin-bottom:48px;line-height:1.1;}
-.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;}
-.s3{background:#fff;padding:36px 28px;transition:background 0.2s;}
-.s3:hover{background:var(--bg2);}
-.s3-n{font-size:11px;font-weight:600;letter-spacing:2px;color:var(--accent);margin-bottom:16px;font-family:'JetBrains Mono',monospace;}
-.s3-ico{font-size:28px;margin-bottom:12px;display:block;}
-.s3 h3{font-size:17px;font-weight:700;letter-spacing:-0.3px;margin-bottom:8px;}
-.s3 p{font-size:13px;color:var(--ink2);line-height:1.7;}
-
-/* PRICE */
-.price-strip{background:var(--ink);padding:48px 24px;text-align:center;}
-.price-strip p{font-size:14px;color:rgba(255,255,255,0.45);margin-bottom:8px;font-family:'JetBrains Mono',monospace;}
-.price-strip .big{font-size:clamp(52px,8vw,80px);font-weight:800;letter-spacing:-3px;color:#fff;line-height:1;}
-.price-strip .big sup{font-size:0.35em;vertical-align:super;color:rgba(255,255,255,0.4);font-weight:400;}
-.price-strip .note{font-size:13px;color:rgba(255,255,255,0.35);margin-top:8px;}
+/* CTA FINAL */
+.cta-final{padding:100px 48px 120px;text-align:center;max-width:640px;margin:0 auto;}
+.cta-final h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-1.5px;color:var(--ink);margin-bottom:16px;line-height:1.1;}
+.cta-final p{font-size:17px;color:var(--ink2);margin-bottom:40px;line-height:1.7;}
 
 /* FOOTER */
-footer{border-top:1px solid var(--line);padding:28px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+footer{border-top:1px solid var(--line);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
 .footer-legal{font-size:12px;color:var(--ink3);line-height:1.8;}
-.footer-legal a{color:var(--ink3);text-decoration:underline;cursor:pointer;}
-
-/* CONSULTA */
-#consulta-page{padding-top:68px;}
-
-/* LOGIN */
-#login-page{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg2);padding:24px;}
-.login-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:48px 40px;width:100%;max-width:400px;box-shadow:0 4px 24px rgba(59,59,255,0.10);}
-.login-card h2{font-size:24px;font-weight:800;letter-spacing:-0.5px;margin-bottom:6px;}
-.login-card p{font-size:14px;color:var(--ink3);margin-bottom:32px;}
-.login-err{font-size:13px;color:var(--red);margin-top:8px;display:none;}
-.btn-login{width:100%;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;box-shadow:0 6px 20px rgba(59,59,255,0.28);}
-.btn-login:hover{background:#2828e0;}
-
-/* ADMIN */
-#admin-page{min-height:100vh;background:var(--bg2);}
-.admin-nav{background:#fff;border-bottom:1px solid var(--line);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-.admin-nav .alogo{font-size:18px;font-weight:800;letter-spacing:-0.3px;color:var(--ink);}
-.admin-nav .alogo span{color:var(--accent);}
-.admin-nav-right{display:flex;align-items:center;gap:16px;}
-.notif-badge{background:var(--red);color:#fff;font-size:11px;font-weight:700;border-radius:100px;padding:2px 8px;font-family:'JetBrains Mono',monospace;}
-.btn-logout{font-size:13px;color:var(--ink3);background:none;border:none;cursor:pointer;padding:8px 14px;border-radius:8px;transition:all 0.2s;}
-.btn-logout:hover{background:var(--line);}
-.admin-body{display:grid;grid-template-columns:320px 1fr;min-height:calc(100vh - 64px);}
-
-/* SIDEBAR */
-.sidebar{background:#fff;border-right:1px solid var(--line);overflow-y:auto;max-height:calc(100vh - 64px);position:sticky;top:64px;}
-.sidebar-header{padding:20px 20px 12px;border-bottom:1px solid var(--line);}
-.sidebar-header h3{font-size:14px;font-weight:700;margin-bottom:12px;}
-.filter-tabs{display:flex;gap:4px;flex-wrap:wrap;}
-.ftab{font-size:11px;font-weight:500;padding:5px 10px;border-radius:6px;border:none;background:none;cursor:pointer;color:var(--ink3);transition:all 0.15s;}
-.ftab.active{background:var(--accent);color:#fff;}
-.ftab:hover:not(.active){background:var(--bg2);}
-.chamado-item{padding:16px 20px;border-bottom:1px solid var(--line);cursor:pointer;transition:background 0.15s;position:relative;}
-.chamado-item:hover{background:var(--bg2);}
-.chamado-item.ativo{background:var(--bg2);border-left:3px solid var(--accent);}
-.chamado-item.nao-lido::after{content:'';position:absolute;top:18px;right:18px;width:8px;height:8px;border-radius:50%;background:var(--accent);}
-.ci-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
-.ci-num{font-size:11px;font-weight:600;color:var(--accent);font-family:'JetBrains Mono',monospace;}
-.ci-time{font-size:11px;color:var(--ink3);}
-.ci-name{font-size:14px;font-weight:600;margin-bottom:3px;}
-.ci-preview{font-size:12px;color:var(--ink3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:240px;}
-.ci-status{font-size:11px;font-weight:600;margin-top:5px;}
-.sdot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:4px;}
-.sdot-novo{background:var(--accent);}
-.sdot-andamento{background:var(--yellow);}
-.sdot-enviado{background:#ff8c00;}
-.sdot-resolvido{background:var(--accent3);}
-.empty-state{padding:48px 20px;text-align:center;color:var(--ink3);}
-.empty-state .es-icon{font-size:36px;margin-bottom:12px;}
-.empty-state p{font-size:13px;line-height:1.6;}
-
-/* DETAIL */
-.detail{padding:32px;overflow-y:auto;max-height:calc(100vh - 64px);}
-.detail-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;color:var(--ink3);text-align:center;}
-.detail-empty .de-icon{font-size:48px;margin-bottom:16px;opacity:0.4;}
-.dh{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;}
-.dh-left h2{font-size:20px;font-weight:800;letter-spacing:-0.4px;margin-bottom:4px;}
-.dh-meta{font-size:13px;color:var(--ink3);font-family:'JetBrains Mono',monospace;}
-.dh-right{display:flex;gap:6px;flex-wrap:wrap;}
-.spill{font-size:11px;font-weight:600;padding:6px 12px;border-radius:100px;border:none;cursor:pointer;transition:all 0.2s;}
-.spill-novo{background:rgba(59,59,255,0.1);color:var(--accent);}
-.spill-andamento{background:rgba(255,184,0,0.12);color:#b07d00;}
-.spill-enviado{background:rgba(255,140,0,0.12);color:#c06000;}
-.spill-resolvido{background:rgba(0,212,170,0.12);color:#00916e;}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
-.info-box{background:var(--bg2);border-radius:12px;padding:16px 18px;}
-.ib-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:5px;font-family:'JetBrains Mono',monospace;}
-.ib-val{font-size:15px;font-weight:600;}
-.pb{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:24px;}
-.pb-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;font-family:'JetBrains Mono',monospace;}
-.pb-text{font-size:15px;line-height:1.8;}
-.audio-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(59,59,255,0.07);border:1px solid var(--line2);border-radius:8px;padding:6px 12px;font-size:12px;color:var(--accent);font-weight:600;margin-bottom:8px;}
-.transcricao-box{background:var(--bg2);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 16px;margin-bottom:20px;font-size:14px;line-height:1.7;color:var(--ink2);}
-.transcricao-box strong{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-family:'JetBrains Mono',monospace;}
-.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;text-decoration:none;padding:14px 24px;border-radius:10px;font-size:15px;font-weight:700;transition:all 0.2s;box-shadow:0 4px 16px rgba(37,211,102,0.3);border:none;cursor:pointer;}
-.btn-wa:hover{background:#1da851;transform:translateY(-1px);}
-.btn-concluir{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,170,0.1);color:#00916e;border:1.5px solid rgba(0,212,170,0.3);padding:14px 22px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s;margin-left:10px;}
-.btn-concluir:hover{background:rgba(0,212,170,0.2);}
-.detail-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
-
-/* STATUS SELECT */
-.status-select-wrap{margin-bottom:24px;}
-.status-select-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;font-family:'JetBrains Mono',monospace;}
-.status-btns{display:flex;gap:8px;flex-wrap:wrap;}
-
-/* TOAST */
-.toast{position:fixed;bottom:32px;right:32px;background:var(--ink);color:#fff;padding:14px 22px;border-radius:12px;font-size:14px;font-weight:500;z-index:9999;transform:translateY(80px);opacity:0;transition:all 0.3s ease;box-shadow:0 8px 32px rgba(0,0,0,0.2);}
-.toast.show{transform:translateY(0);opacity:1;}
+.footer-legal a{color:var(--ink3);text-decoration:underline;}
 
 @media(max-width:860px){
-  nav{padding:0 20px;}
-  .admin-body{grid-template-columns:1fr;}
-  .steps3{grid-template-columns:1fr;}
+  nav{padding:0 24px;}
+  .hero{grid-template-columns:1fr;padding:120px 24px 80px;}
+  .hero-visual{display:none;}
+  .section-wrap{padding:80px 24px;}
+  .produto-wrap{padding:0 24px 80px;}
+  .produto-inner{grid-template-columns:1fr;}
+  .produto-right{border-left:none;border-top:1px solid rgba(255,255,255,0.06);}
+  .cta-final{padding:80px 24px 100px;}
   footer{padding:24px;flex-direction:column;align-items:flex-start;}
-  .field-row{grid-template-columns:1fr;}
+  .steps-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
-<!-- PUBLIC PAGE -->
-<div id="public-page">
-  <nav>
-    <a class="logo" id="logo-pub" href="#">
-      <svg class="logo-mark" viewBox="0 0 36 36" fill="none">
-        <circle cx="18" cy="14" r="9" fill="url(#lg1)"/>
-        <path d="M10 21 Q7 27 9 31" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M13.5 23 Q12 28.5 13.5 32" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M18 24 Q18 29.5 18 33" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M22.5 23 Q24 28.5 22.5 32" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M26 21 Q29 27 27 31" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <text x="18" y="19.5" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" font-weight="800" fill="white">S</text>
-        <defs><linearGradient id="lg1" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b3bff"/><stop offset="100%" stop-color="#7c3bff"/></linearGradient></defs>
-      </svg>
-      <span class="logo-text">Sol<span>vo</span></span>
+<nav>
+  <a class="logo" href="#">
+    <svg class="logo-mark" viewBox="0 0 36 36" fill="none">
+      <circle cx="18" cy="14" r="9" fill="url(#lg1)"/>
+      <path d="M10 21 Q7 27 9 31" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M13.5 23 Q12 28.5 13.5 32" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M18 24 Q18 29.5 18 33" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M22.5 23 Q24 28.5 22.5 32" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M26 21 Q29 27 27 31" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <text x="18" y="19.5" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" font-weight="800" fill="white">S</text>
+      <defs><linearGradient id="lg1" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b3bff"/><stop offset="100%" stop-color="#7c3bff"/></linearGradient></defs>
+    </svg>
+    <span class="logo-text">Sol<span>vo</span></span>
+  </a>
+  <a class="nav-cta" href="https://wa.me/5551999764941?text=Oi%2C%20preciso%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica" target="_blank">Consultar agora</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="badge"><div class="badge-dot"></div>consultoria juridica online agora</div>
+    <h1>Seu problema<br>juridico.<br><span class="grad">Resolvido.</span></h1>
+    <p class="hero-sub">Descreva o que esta acontecendo com suas palavras. Um advogado analisa e entrega o documento que voce precisa.</p>
+    <a class="btn-main" href="https://wa.me/5551999764941?text=Oi%2C%20preciso%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica" target="_blank">
+      Consultar agora
     </a>
-    <button class="nav-admin-btn" id="btn-painel">Painel</button>
-  </nav>
-
-  <div class="hero-pub">
-    <div class="badge"><div class="badge-dot"></div>consultoria juridica online</div>
-    <h1>Seu problema jurídico.<br><span class="grad">Resolvido.</span></h1>
-    <p>Descreva o que esta acontecendo com suas palavras.<br>Um advogado analisa e entrega o documento que voce precisa.</p>
+    <div class="hero-note">R$ 150 fixo &nbsp;·&nbsp; so paga quando receber &nbsp;·&nbsp; sem cadastro</div>
   </div>
 
-  <div id="form-wrap" class="form-card">
-    <h2>Descreva seu problema</h2>
-    <p class="form-sub">Sem juridiques. Escreva ou grave um audio.</p>
-
-    <div class="field-row">
-      <div class="field">
-        <label>Seu nome</label>
-        <input type="text" id="f-nome" placeholder="Ex: Maria Silva">
-      </div>
-      <div class="field">
-        <label>WhatsApp para retorno</label>
-        <input type="tel" id="f-tel" placeholder="(51) 99999-9999">
-      </div>
-    </div>
-
-    <div class="audio-section">
-      <span class="audio-label">Prefere gravar um audio?</span>
-      <div class="recorder-box">
-        <button class="rec-btn rec-btn-start" id="rec-start-btn">Gravar audio</button>
-        <button class="rec-btn rec-btn-stop hidden" id="rec-stop-btn">Parar gravacao</button>
-        <div class="rec-timer hidden" id="rec-timer">00:00</div>
-        <div class="rec-status" id="rec-status">Clique para gravar</div>
-      </div>
-      <div class="hidden" id="audio-preview-wrap">
-        <div class="audio-preview">
-          <audio id="audio-playback" controls></audio>
-          <button class="btn-remove-audio" id="btn-remove-audio">x</button>
+  <div class="hero-visual">
+    <div class="visual-glow"></div>
+    <div class="visual-pill vp1"><div class="vp-dot dot-green"></div>Advogado online agora</div>
+    <div class="visual-card">
+      <div class="vc-header">
+        <div class="vc-avatar">
+          <svg viewBox="0 0 20 20" width="18" height="18" fill="none">
+            <circle cx="10" cy="8" r="5" fill="white"/>
+            <path d="M6 12 Q5 15 6.5 17.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M8 13 Q7.5 16 8.5 18" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M10 13.5 Q10 16.5 10 18.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M12 13 Q12.5 16 11.5 18" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M14 12 Q15 15 13.5 17.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
         </div>
+        <div><div class="vc-name">Solvo</div><div class="vc-sub">Consultoria Juridica</div></div>
+        <div class="vc-status">online</div>
       </div>
-      <div class="hidden" id="transcribing-wrap">
-        <div class="transcribing-spinner"><div class="spinner"></div>Transcrevendo...</div>
+      <div class="vc-msg">"A empresa nao quer devolver meu dinheiro. Comprei com defeito ha 3 semanas."</div>
+      <div class="vc-reply">
+        <div class="vc-reply-icon">&#128196;</div>
+        <div><div class="vc-reply-title">Parecer Juridico</div><div class="vc-reply-sub">Assinado · ICP-Brasil · PDF</div></div>
       </div>
-      <div class="hidden" id="transcription-result">
-        <div class="transcription-box">
-          <div class="transcription-label">Transcricao do audio</div>
-          <div id="transcription-text"></div>
-        </div>
+      <div class="vc-pay">
+        <div><div class="vc-pay-label">Total</div><div class="vc-pay-val"><span>R$</span> 150</div></div>
+        <button class="vc-pay-btn">Pagar Pix</button>
       </div>
     </div>
-
-    <div class="audio-or">ou escreva</div>
-
-    <div class="field">
-      <label>Qual e o seu problema?</label>
-      <textarea id="f-problema" placeholder="Ex: Comprei um produto com defeito e a loja nao quer trocar. O que eu faco?"></textarea>
-    </div>
-
-    <div class="terms-row">
-      <input type="checkbox" id="f-termos">
-      <label for="f-termos">Li e aceito os <a href="termos.html" target="_blank">Termos de Uso</a> e a <a href="termos.html" target="_blank">Politica de Privacidade</a>.</label>
-    </div>
-
-    <button class="btn-submit" id="btn-enviar">Enviar e aguardar analise</button>
-    <div style="text-align:center;margin-top:12px;font-size:13px;color:var(--ink3);">
-      Voce recebera um parecer juridico assinado. R$ 150 fixo. So paga quando receber.
-    </div>
+    <div class="visual-pill vp2"><div class="vp-dot dot-purple"></div>Parecer assinado</div>
   </div>
+</section>
 
-  <div id="success-wrap" class="success-card hidden">
-    <div class="success-icon">&#10003;</div>
-    <h3>Chamado recebido!</h3>
-    <p>Estamos encaminhando seu caso para um advogado. Em breve voce recebera contato pelo WhatsApp informado.</p>
-    <div class="chamado-num" id="success-num">#0001</div>
-    <div style="margin-top:28px;background:#fff;border:1.5px solid var(--line2);border-radius:14px;padding:22px 24px;text-align:left;">
-      <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-family:'JetBrains Mono',monospace;">O que e um parecer juridico?</div>
-      <p style="font-size:14px;color:var(--ink2);line-height:1.8;margin:0;">E um documento assinado por um advogado que analisa seu caso, explica seus direitos e indica o caminho para resolver. Com ele voce sabe o que fazer e chega com respaldo juridico formal.</p>
-      <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;">
-        <div style="display:flex;gap:10px;font-size:13px;color:var(--ink2);"><span style="color:var(--accent3);font-weight:700;">+</span>Validade legal com certificado digital ICP-Brasil</div>
-        <div style="display:flex;gap:10px;font-size:13px;color:var(--ink2);"><span style="color:var(--accent3);font-weight:700;">+</span>Pode usar para negociar, reclamar ou entrar no juizado</div>
-        <div style="display:flex;gap:10px;font-size:13px;color:var(--ink2);"><span style="color:var(--accent3);font-weight:700;">+</span>Se precisar de mais, voce recebe proposta junto</div>
-      </div>
-    </div>
-    <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;justify-content:center;">
-      <button class="btn-submit" id="btn-novo-envio" style="flex:1;min-width:160px;">Enviar outro caso</button>
-      <button id="btn-ir-consulta" style="flex:1;min-width:160px;padding:16px;background:var(--bg2);color:var(--accent);border:1.5px solid var(--line2);border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;">Consultar status</button>
-    </div>
-  </div>
-
-  <div class="how">
-    <div class="eyebrow">// Como funciona</div>
-    <h2>Simples como mandar uma mensagem.</h2>
-    <div class="steps3">
-      <div class="s3"><div class="s3-n">01</div><span class="s3-ico">&#128172;</span><h3>Voce descreve</h3><p>Escreva ou grave um audio. Sem formulario complicado.</p></div>
-      <div class="s3"><div class="s3-n">02</div><span class="s3-ico">&#9889;</span><h3>A gente analisa</h3><p>Um advogado le seu caso e decide o que voce precisa.</p></div>
-      <div class="s3"><div class="s3-n">03</div><span class="s3-ico">&#10003;</span><h3>Voce recebe</h3><p>Parecer juridico assinado digitalmente. So paga quando receber.</p></div>
-    </div>
-  </div>
-
-  <div class="price-strip">
-    <p>// preco fixo sem surpresa</p>
-    <div class="big"><sup>R$</sup>150</div>
-    <div class="note">por consulta · parecer assinado · ICP-Brasil</div>
-  </div>
-
-  <footer>
-    <a class="logo" id="logo-footer" href="#">
-      <svg class="logo-mark" viewBox="0 0 36 36" fill="none">
-        <circle cx="18" cy="14" r="9" fill="url(#lg2)"/>
-        <path d="M10 21 Q7 27 9 31" stroke="url(#lg2)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M13.5 23 Q12 28.5 13.5 32" stroke="url(#lg2)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M18 24 Q18 29.5 18 33" stroke="url(#lg2)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M22.5 23 Q24 28.5 22.5 32" stroke="url(#lg2)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M26 21 Q29 27 27 31" stroke="url(#lg2)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <text x="18" y="19.5" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" font-weight="800" fill="white">S</text>
-        <defs><linearGradient id="lg2" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b3bff"/><stop offset="100%" stop-color="#7c3bff"/></linearGradient></defs>
-      </svg>
-      <span class="logo-text">Sol<span>vo</span></span>
-    </a>
-    <div class="footer-legal">
-      Servico de consultoria juridica · Advogados inscritos na OAB<br>
-      <a href="termos.html" target="_blank">Politica de Privacidade</a> · <a href="termos.html" target="_blank">Termos de Uso</a> · <a href="#" id="link-consulta-footer">Consultar chamado</a>
-    </div>
-  </footer>
-</div>
-
-<!-- CONSULTA PAGE -->
-<div id="consulta-page" class="hidden">
-  <nav>
-    <a class="logo" id="logo-consulta" href="#">
-      <svg class="logo-mark" viewBox="0 0 36 36" fill="none">
-        <circle cx="18" cy="14" r="9" fill="url(#lg3)"/>
-        <path d="M10 21 Q7 27 9 31" stroke="url(#lg3)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M13.5 23 Q12 28.5 13.5 32" stroke="url(#lg3)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M18 24 Q18 29.5 18 33" stroke="url(#lg3)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M22.5 23 Q24 28.5 22.5 32" stroke="url(#lg3)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <path d="M26 21 Q29 27 27 31" stroke="url(#lg3)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-        <text x="18" y="19.5" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" font-weight="800" fill="white">S</text>
-        <defs><linearGradient id="lg3" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b3bff"/><stop offset="100%" stop-color="#7c3bff"/></linearGradient></defs>
-      </svg>
-      <span class="logo-text">Sol<span>vo</span></span>
-    </a>
-    <button class="nav-admin-btn" id="btn-voltar-consulta">Voltar</button>
-  </nav>
-  <div style="max-width:480px;margin:80px auto;padding:24px;">
-    <div style="text-align:center;margin-bottom:36px;">
-      <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-family:'JetBrains Mono',monospace;">Acompanhar chamado</div>
-      <h2 style="font-size:28px;font-weight:800;letter-spacing:-0.8px;">Consultar status</h2>
-      <p style="font-size:15px;color:var(--ink2);margin-top:8px;">Digite o numero do seu chamado.</p>
-    </div>
-    <div style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;box-shadow:0 4px 24px rgba(59,59,255,0.07);">
-      <div class="field">
-        <label>Numero do chamado</label>
-        <input type="text" id="consulta-num" placeholder="Ex: 0001" style="font-size:24px;font-weight:700;letter-spacing:2px;font-family:'JetBrains Mono',monospace;text-align:center;">
-      </div>
-      <button class="btn-submit" id="btn-buscar">Consultar</button>
-    </div>
-    <div id="consulta-result" class="hidden" style="margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:0 4px 24px rgba(59,59,255,0.07);"></div>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><span>Parecer juridico</span><div class="ticker-sep"></div></div>
+    <div class="ticker-item"><span>Assinado ICP-Brasil</span><div class="ticker-sep"></div></div>
+    <div class="ticker-item"><span>Direito do consumidor</span><div class="ticker-sep"></div></div>
+    <div class="ticker-item"><span>Notificacao extrajudicial</span><div class="ticker-sep"></div></div>
+    <div class="ticker-item"><span>Revisao de contrato</span><div class="ticker-sep"></div></div>
+    <div class="ticker-item"><span>Orientacao JEC</span><div class="ticker-sep"></div></div>
+    <div class="ticker-item"><span>Direito imobiliario</span><div class="ticker-sep"></div></div>
+    <div class="ticker-item"><span>Parecer juridico</span><div class="ticker-sep"></div></div>
+    <div class="ticker-item"><span>Assinado ICP-Brasil</span><div class="ticker-sep"></div></div>
+    <div class="ticker-item"><span>Direito do consumidor</span><div class="ticker-sep"></div></div>
+    <div class="ticker-item"><span>Notificacao extrajudicial</span><div class="ticker-sep"></div></div>
+    <div class="ticker-item"><span>Revisao de contrato</span><div class="ticker-sep"></div></div>
+    <div class="ticker-item"><span>Orientacao JEC</span><div class="ticker-sep"></div></div>
+    <div class="ticker-item"><span>Direito imobiliario</span><div class="ticker-sep"></div></div>
   </div>
 </div>
 
-<!-- LOGIN PAGE -->
-<div id="login-page" class="hidden">
-  <div class="login-card">
-    <h2>Painel Solvo</h2>
-    <p>Acesso restrito.</p>
-    <div class="field">
-      <label>Senha</label>
-      <input type="password" id="login-senha" placeholder="••••••••">
+<!-- COMO FUNCIONA -->
+<section class="section-wrap" id="como-funciona">
+  <div class="section-eyebrow">// Como funciona</div>
+  <h2 class="section-title">Simples como mandar<br>uma mensagem.</h2>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-n">01 —</div>
+      <span class="step-icon">&#128172;</span>
+      <h3>Voce descreve</h3>
+      <p>Manda uma mensagem no WhatsApp com suas proprias palavras. Sem formulario, sem juridiques.</p>
     </div>
-    <div class="login-err" id="login-err">Senha incorreta.</div>
-    <button class="btn-login" id="btn-entrar">Entrar</button>
-    <div style="text-align:center;margin-top:20px;">
-      <button id="btn-voltar-login" style="background:none;border:none;font-size:13px;color:var(--ink3);cursor:pointer;">Voltar ao site</button>
+    <div class="step-card">
+      <div class="step-n">02 —</div>
+      <span class="step-icon">&#9889;</span>
+      <h3>Um advogado analisa</h3>
+      <p>Nossa equipe le seu caso e decide o que voce precisa. Voce nao precisa saber o nome tecnico.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-n">03 —</div>
+      <span class="step-icon">&#10003;</span>
+      <h3>Voce recebe</h3>
+      <p>Parecer juridico assinado digitalmente com certificado ICP-Brasil. So paga quando receber.</p>
     </div>
   </div>
+</section>
+
+<!-- PRODUTO -->
+<section class="produto-wrap" id="produto">
+  <div class="produto-inner">
+    <div class="produto-left">
+      <div class="produto-label">// Produto</div>
+      <div class="produto-price"><sup>R$</sup>150</div>
+      <div class="produto-per">por consulta · preco fixo</div>
+      <p class="produto-desc">Uma consulta. Um documento. Sem surpresa. Voce sabe o que vai pagar antes de comecar.</p>
+      <a class="produto-cta" href="https://wa.me/5551999764941?text=Oi%2C%20preciso%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica" target="_blank">Consultar agora</a>
+    </div>
+    <div class="produto-right">
+      <div class="entrega-title">// O que voce recebe</div>
+      <div class="e-item">
+        <div class="e-icon">&#128203;</div>
+        <div><div class="e-title">Parecer juridico completo</div><div class="e-sub">Analise do caso, o que fazer e como — em linguagem clara.</div></div>
+      </div>
+      <div class="e-item">
+        <div class="e-icon">&#128274;</div>
+        <div><div class="e-title">Assinado digitalmente · ICP-Brasil</div><div class="e-sub">Validade juridica plena. Equivale a uma assinatura de cartorio.</div></div>
+      </div>
+      <div class="e-item">
+        <div class="e-icon">&#128241;</div>
+        <div><div class="e-title">Entrega direto no WhatsApp</div><div class="e-sub">PDF na conversa. Sem login, sem app extra.</div></div>
+      </div>
+      <div class="e-item">
+        <div class="e-icon">&#128179;</div>
+        <div><div class="e-title">So paga quando receber</div><div class="e-sub">O link de pagamento chega junto com o documento.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="cta-final">
+  <h2>Qual e o seu<br><span class="grad">problema?</span></h2>
+  <p>Manda uma mensagem. A gente analisa e entrega o que voce precisa.</p>
+  <a class="btn-main" href="https://wa.me/5551999764941?text=Oi%2C%20preciso%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica" target="_blank">
+    Consultar agora no WhatsApp
+  </a>
 </div>
 
-<!-- ADMIN PAGE -->
-<div id="admin-page" class="hidden">
-  <div class="admin-nav">
-    <div class="alogo">Sol<span>vo</span> <span style="font-size:12px;font-weight:400;color:var(--ink3);">/ painel</span></div>
-    <div class="admin-nav-right">
-      <span class="notif-badge hidden" id="badge-count">0</span>
-      <button class="btn-logout" id="btn-sair">Sair</button>
-    </div>
+<!-- FOOTER -->
+<footer>
+  <a class="logo" href="#">
+    <svg class="logo-mark" viewBox="0 0 36 36" fill="none">
+      <circle cx="18" cy="14" r="9" fill="url(#lg2)"/>
+      <path d="M10 21 Q7 27 9 31" stroke="url(#lg2)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M13.5 23 Q12 28.5 13.5 32" stroke="url(#lg2)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M18 24 Q18 29.5 18 33" stroke="url(#lg2)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M22.5 23 Q24 28.5 22.5 32" stroke="url(#lg2)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M26 21 Q29 27 27 31" stroke="url(#lg2)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <text x="18" y="19.5" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" font-weight="800" fill="white">S</text>
+      <defs><linearGradient id="lg2" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b3bff"/><stop offset="100%" stop-color="#7c3bff"/></linearGradient></defs>
+    </svg>
+    <span class="logo-text">Sol<span>vo</span></span>
+  </a>
+  <div class="footer-legal">
+    Servico de consultoria juridica · Advogados inscritos na OAB<br>
+    <a href="termos.html" target="_blank">Politica de Privacidade</a> · <a href="termos.html" target="_blank">Termos de Uso</a>
   </div>
-  <div class="admin-body">
-    <div class="sidebar">
-      <div class="sidebar-header">
-        <h3>Chamados</h3>
-        <div class="filter-tabs">
-          <button class="ftab active" data-filter="todos">Todos</button>
-          <button class="ftab" data-filter="novo">Recebidos</button>
-          <button class="ftab" data-filter="andamento">Andamento</button>
-          <button class="ftab" data-filter="enviado">Enviados</button>
-          <button class="ftab" data-filter="resolvido">Concluidos</button>
-        </div>
-      </div>
-      <div id="chamados-list"></div>
-    </div>
-    <div class="detail" id="detail-panel">
-      <div class="detail-empty">
-        <div class="de-icon">&#128203;</div>
-        <p>Selecione um chamado na lista.</p>
-      </div>
-    </div>
-  </div>
-</div>
+</footer>
 
-<div class="toast" id="toast"></div>
-
-<script>
-var ADMIN_PASS = 'solvo2026';
-var WA_NUMBER = '5551999764941';
-var CALLMEBOT_KEY = '3861399';
-
-var currentFilter = 'todos';
-var currentChamado = null;
-var chamados = [];
-var mediaRecorder = null;
-var audioChunks = [];
-var recTimerInterval = null;
-var recSeconds = 0;
-var audioBlob = null;
-var transcricaoFinal = '';
-
-function saveChamados() { localStorage.setItem('solvo_chamados', JSON.stringify(chamados)); }
-function loadChamados() { var r = localStorage.getItem('solvo_chamados'); chamados = r ? JSON.parse(r) : []; }
-
-function showPage(id) {
-  ['public-page','consulta-page','login-page','admin-page'].forEach(function(p) {
-    document.getElementById(p).classList.add('hidden');
-  });
-  document.getElementById(id).classList.remove('hidden');
-}
-
-function showPublic() { showPage('public-page'); }
-function showConsulta() {
-  showPage('consulta-page');
-  document.getElementById('consulta-result').classList.add('hidden');
-  document.getElementById('consulta-num').value = '';
-  setTimeout(function(){ document.getElementById('consulta-num').focus(); }, 100);
-}
-function showLogin() {
-  showPage('login-page');
-  document.getElementById('login-senha').value = '';
-  document.getElementById('login-err').style.display = 'none';
-  setTimeout(function(){ document.getElementById('login-senha').focus(); }, 100);
-}
-function showAdmin() {
-  showPage('admin-page');
-  loadChamados();
-  renderList();
-  updateBadge();
-}
-
-function doLogin() {
-  if (document.getElementById('login-senha').value === ADMIN_PASS) {
-    sessionStorage.setItem('solvo_auth', '1');
-    showAdmin();
-  } else {
-    document.getElementById('login-err').style.display = 'block';
-  }
-}
-
-function doLogout() {
-  sessionStorage.removeItem('solvo_auth');
-  showPublic();
-}
-
-// AUDIO
-document.getElementById('rec-start-btn').addEventListener('click', startRecording);
-document.getElementById('rec-stop-btn').addEventListener('click', stopRecording);
-document.getElementById('btn-remove-audio').addEventListener('click', removeAudio);
-
-function startRecording() {
-  navigator.mediaDevices.getUserMedia({audio: true}).then(function(stream) {
-    audioChunks = [];
-    mediaRecorder = new MediaRecorder(stream);
-    mediaRecorder.ondataavailable = function(e) { if (e.data.size > 0) audioChunks.push(e.data); };
-    mediaRecorder.onstop = function() {
-      audioBlob = new Blob(audioChunks, {type: 'audio/webm'});
-      var url = URL.createObjectURL(audioBlob);
-      document.getElementById('audio-playback').src = url;
-      document.getElementById('audio-preview-wrap').classList.remove('hidden');
-      stream.getTracks().forEach(function(t){ t.stop(); });
-      transcreverAudio(audioBlob);
-    };
-    mediaRecorder.start();
-    recSeconds = 0;
-    document.getElementById('rec-start-btn').classList.add('hidden');
-    document.getElementById('rec-stop-btn').classList.remove('hidden');
-    document.getElementById('rec-timer').classList.remove('hidden');
-    document.getElementById('rec-status').textContent = 'Gravando...';
-    recTimerInterval = setInterval(function() {
-      recSeconds++;
-      var m = String(Math.floor(recSeconds/60)).padStart(2,'0');
-      var s = String(recSeconds%60).padStart(2,'0');
-      document.getElementById('rec-timer').textContent = m+':'+s;
-    }, 1000);
-  }).catch(function() {
-    showToast('Permita o acesso ao microfone');
-  });
-}
-
-function stopRecording() {
-  if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-    mediaRecorder.stop();
-    clearInterval(recTimerInterval);
-    document.getElementById('rec-stop-btn').classList.add('hidden');
-    document.getElementById('rec-timer').classList.add('hidden');
-    document.getElementById('rec-start-btn').classList.remove('hidden');
-    document.getElementById('rec-status').textContent = 'Audio gravado';
-  }
-}
-
-function removeAudio() {
-  audioBlob = null;
-  transcricaoFinal = '';
-  document.getElementById('audio-preview-wrap').classList.add('hidden');
-  document.getElementById('transcription-result').classList.add('hidden');
-  document.getElementById('transcribing-wrap').classList.add('hidden');
-  document.getElementById('rec-status').textContent = 'Clique para gravar';
-}
-
-function transcreverAudio(blob) {
-  document.getElementById('transcribing-wrap').classList.remove('hidden');
-  document.getElementById('transcription-result').classList.add('hidden');
-  var reader = new FileReader();
-  reader.onload = function(e) {
-    var base64 = e.target.result.split(',')[1];
-    fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: 'Transcreva o audio com precisao. Responda APENAS com a transcricao, sem comentarios.',
-        messages: [{role:'user', content:[
-          {type:'text', text:'Transcreva este audio:'},
-          {type:'document', source:{type:'base64', media_type:'audio/webm', data:base64}}
-        ]}]
-      })
-    }).then(function(r){ return r.json(); }).then(function(data) {
-      var texto = (data.content && data.content[0] && data.content[0].text) ? data.content[0].text : '';
-      transcricaoFinal = texto;
-      document.getElementById('transcription-text').textContent = texto;
-      document.getElementById('transcribing-wrap').classList.add('hidden');
-      document.getElementById('transcription-result').classList.remove('hidden');
-      var ta = document.getElementById('f-problema');
-      if (!ta.value.trim()) ta.value = texto;
-    }).catch(function() {
-      document.getElementById('transcribing-wrap').classList.add('hidden');
-      showToast('Nao foi possivel transcrever. Edite o texto abaixo.');
-    });
-  };
-  reader.readAsDataURL(blob);
-}
-
-// FORM
-document.getElementById('btn-enviar').addEventListener('click', submitForm);
-
-function submitForm() {
-  var nome = document.getElementById('f-nome').value.trim();
-  var tel = document.getElementById('f-tel').value.trim();
-  var prob = document.getElementById('f-problema').value.trim();
-  var termos = document.getElementById('f-termos').checked;
-  if (!nome) { showToast('Informe seu nome'); return; }
-  if (!tel) { showToast('Informe seu WhatsApp'); return; }
-  if (!prob && !transcricaoFinal) { showToast('Descreva o problema ou grave um audio'); return; }
-  if (!termos) { showToast('Aceite os termos para continuar'); return; }
-  loadChamados();
-  var num = String(chamados.length + 1).padStart(4, '0');
-  var novo = {
-    id: num, nome: nome, tel: tel,
-    problema: prob || transcricaoFinal,
-    transcricao: transcricaoFinal || null,
-    temAudio: !!audioBlob,
-    status: 'novo',
-    createdAt: new Date().toISOString(),
-    lido: false
-  };
-  chamados.unshift(novo);
-  saveChamados();
-  enviarNotificacao(novo);
-  document.getElementById('success-num').textContent = '#' + num;
-  document.getElementById('form-wrap').classList.add('hidden');
-  document.getElementById('success-wrap').classList.remove('hidden');
-}
-
-document.getElementById('btn-novo-envio').addEventListener('click', function() {
-  document.getElementById('f-nome').value = '';
-  document.getElementById('f-tel').value = '';
-  document.getElementById('f-problema').value = '';
-  document.getElementById('f-termos').checked = false;
-  audioBlob = null; transcricaoFinal = '';
-  removeAudio();
-  document.getElementById('form-wrap').classList.remove('hidden');
-  document.getElementById('success-wrap').classList.add('hidden');
-});
-
-document.getElementById('btn-ir-consulta').addEventListener('click', showConsulta);
-
-// NOTIFICACAO
-function enviarNotificacao(c) {
-  var msg = encodeURIComponent('Solvo - Chamado #' + c.id + ' - ' + c.nome + ' - ' + c.tel + ' - ' + (c.problema || '').substring(0, 100));
-  var url = 'https://api.callmebot.com/whatsapp.php?phone=' + WA_NUMBER + '&text=' + msg + '&apikey=' + CALLMEBOT_KEY;
-  var img = new Image();
-  img.src = url;
-}
-
-// CONSULTA
-document.getElementById('btn-buscar').addEventListener('click', buscarChamado);
-document.getElementById('consulta-num').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') buscarChamado();
-});
-
-function buscarChamado() {
-  var num = document.getElementById('consulta-num').value.trim().padStart(4, '0');
-  loadChamados();
-  var c = chamados.find(function(x){ return x.id === num; });
-  var res = document.getElementById('consulta-result');
-  var info = {
-    novo:      {icon:'&#128228;', label:'Recebido',        desc:'Seu chamado foi recebido e esta na fila.', color:'var(--accent)'},
-    andamento: {icon:'&#128260;', label:'Em andamento',    desc:'Um advogado esta analisando seu caso.', color:'var(--yellow)'},
-    enviado:   {icon:'&#128232;', label:'Parecer enviado', desc:'O parecer foi enviado para seu WhatsApp.', color:'#ff8c00'},
-    resolvido: {icon:'&#10003;',  label:'Concluido',       desc:'Seu caso foi concluido. Obrigada pela confianca!', color:'var(--accent3)'}
-  };
-  if (!c) {
-    res.innerHTML = '<div style="text-align:center;color:var(--ink3);padding:20px;"><p>Chamado #' + num + ' nao encontrado. Verifique o numero.</p></div>';
-    res.classList.remove('hidden');
-    return;
-  }
-  var s = info[c.status] || info['novo'];
-  var dt = new Date(c.createdAt).toLocaleDateString('pt-BR');
-  var html = '<div style="text-align:center;margin-bottom:20px;">';
-  html += '<div style="font-size:48px;margin-bottom:8px;">' + s.icon + '</div>';
-  html += '<div style="font-size:13px;font-weight:700;color:' + s.color + ';margin-bottom:6px;">' + s.label + '</div>';
-  html += '<div style="font-size:14px;color:var(--ink2);line-height:1.6;">' + s.desc + '</div>';
-  html += '</div>';
-  html += '<div style="border-top:1px solid var(--line);padding-top:16px;">';
-  html += '<div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px;">';
-  html += '<span style="color:var(--ink3)">Chamado</span><span style="font-weight:700;color:var(--accent);font-family:monospace">#' + c.id + '</span>';
-  html += '</div>';
-  html += '<div style="display:flex;justify-content:space-between;font-size:13px;">';
-  html += '<span style="color:var(--ink3)">Enviado em</span><span style="font-weight:600">' + dt + '</span>';
-  html += '</div></div>';
-  res.innerHTML = html;
-  res.classList.remove('hidden');
-}
-
-// ADMIN LIST
-document.querySelectorAll('.ftab').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    currentFilter = this.dataset.filter;
-    document.querySelectorAll('.ftab').forEach(function(b){ b.classList.remove('active'); });
-    this.classList.add('active');
-    currentChamado = null;
-    document.getElementById('detail-panel').innerHTML = '<div class="detail-empty"><div class="de-icon">&#128203;</div><p>Selecione um chamado.</p></div>';
-    renderList();
-  });
-});
-
-function renderList() {
-  loadChamados();
-  var filtered = currentFilter === 'todos' ? chamados : chamados.filter(function(c){ return c.status === currentFilter; });
-  var el = document.getElementById('chamados-list');
-  if (!filtered.length) {
-    el.innerHTML = '<div class="empty-state"><div class="es-icon">&#128237;</div><p>Nenhum chamado aqui.</p></div>';
-    return;
-  }
-  var labels = {novo:'Recebido', andamento:'Em andamento', enviado:'Parecer enviado', resolvido:'Concluido'};
-  el.innerHTML = filtered.map(function(c) {
-    var dt = new Date(c.createdAt);
-    var hora = dt.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
-    var data = dt.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'});
-    var ativo = c.id === currentChamado ? ' ativo' : '';
-    var nlido = !c.lido ? ' nao-lido' : '';
-    return '<div class="chamado-item' + ativo + nlido + '" data-id="' + c.id + '">'
-      + '<div class="ci-top"><span class="ci-num">#' + c.id + '</span><span class="ci-time">' + data + ' ' + hora + '</span></div>'
-      + '<div class="ci-name">' + esc(c.nome) + '</div>'
-      + '<div class="ci-preview">' + (c.temAudio ? 'audio: ' : '') + esc(c.problema) + '</div>'
-      + '<div class="ci-status"><span class="sdot sdot-' + c.status + '"></span>' + (labels[c.status] || c.status) + '</div>'
-      + '</div>';
-  }).join('');
-
-  el.querySelectorAll('.chamado-item').forEach(function(el) {
-    el.addEventListener('click', function() { openChamado(this.dataset.id); });
-  });
-}
-
-function updateBadge() {
-  loadChamados();
-  var n = chamados.filter(function(c){ return !c.lido; }).length;
-  var b = document.getElementById('badge-count');
-  b.textContent = n;
-  b.classList.toggle('hidden', n === 0);
-}
-
-function openChamado(id) {
-  loadChamados();
-  var c = chamados.find(function(x){ return x.id === id; });
-  if (!c) return;
-  c.lido = true;
-  currentChamado = id;
-  saveChamados();
-  renderList();
-  updateBadge();
-  renderDetail(c);
-}
-
-function renderDetail(c) {
-  var dt = new Date(c.createdAt).toLocaleString('pt-BR');
-  var labels = {novo:'Recebido', andamento:'Em andamento', enviado:'Parecer enviado', resolvido:'Concluido'};
-  var statusBtns = ['novo','andamento','enviado','resolvido'].map(function(s) {
-    var ativo = c.status === s ? 'font-weight:800;box-shadow:0 0 0 2px currentColor;' : 'opacity:0.55;';
-    return '<button class="spill spill-' + s + '" style="' + ativo + '" data-status="' + s + '">' + labels[s] + '</button>';
-  }).join('');
-
-  var waNum = '55' + c.tel.replace(/\D/g,'');
-  var waMsg = encodeURIComponent('Ola, ' + c.nome + '! Recebi seu caso (#' + c.id + ') pela Solvo e ja estou analisando. Em breve te envio o parecer.');
-  var waLink = 'https://wa.me/' + waNum + '?text=' + waMsg;
-
-  var audioHtml = c.temAudio ? '<div class="audio-badge">audio enviado</div>' : '';
-  var transcHtml = c.transcricao ? '<div class="transcricao-box"><strong>Transcricao do audio</strong>' + esc(c.transcricao) + '</div>' : '';
-
-  var panel = document.getElementById('detail-panel');
-  panel.innerHTML = '<div class="dh">'
-    + '<div class="dh-left"><h2>' + esc(c.nome) + '</h2><div class="dh-meta">#' + c.id + ' · ' + dt + ' · ' + esc(c.tel) + '</div></div>'
-    + '<div class="dh-right status-btns">' + statusBtns + '</div>'
-    + '</div>'
-    + '<div class="info-grid">'
-    + '<div class="info-box"><div class="ib-label">WhatsApp</div><div class="ib-val">' + esc(c.tel) + '</div></div>'
-    + '<div class="info-box"><div class="ib-label">Status</div><div class="ib-val">' + (labels[c.status] || c.status) + '</div></div>'
-    + '</div>'
-    + audioHtml
-    + transcHtml
-    + '<div class="pb"><div class="pb-label">Problema do cliente</div><div class="pb-text">' + esc(c.problema) + '</div></div>'
-    + '<div class="detail-actions">'
-    + '<a href="' + waLink + '" target="_blank" class="btn-wa">Responder no WhatsApp</a>'
-    + '<button class="btn-concluir" data-id="' + c.id + '">Marcar concluido</button>'
-    + '</div>';
-
-  panel.querySelectorAll('.spill').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      setStatus(c.id, this.dataset.status);
-    });
-  });
-
-  panel.querySelector('.btn-concluir').addEventListener('click', function() {
-    setStatus(this.dataset.id, 'resolvido');
-  });
-}
-
-function setStatus(id, status) {
-  loadChamados();
-  var c = chamados.find(function(x){ return x.id === id; });
-  if (!c) return;
-  c.status = status;
-  saveChamados();
-  renderList();
-  renderDetail(c);
-  var labels = {novo:'Recebido', andamento:'Em andamento', enviado:'Parecer enviado', resolvido:'Concluido'};
-  showToast('Status: ' + labels[status]);
-}
-
-function esc(s) {
-  if (!s) return '';
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-function showToast(msg) {
-  var t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(function(){ t.classList.remove('show'); }, 3000);
-}
-
-// EVENTOS DE NAVEGACAO
-document.getElementById('btn-painel').addEventListener('click', showLogin);
-document.getElementById('logo-pub').addEventListener('click', function(e){ e.preventDefault(); showPublic(); });
-document.getElementById('logo-footer').addEventListener('click', function(e){ e.preventDefault(); showPublic(); });
-document.getElementById('logo-consulta').addEventListener('click', function(e){ e.preventDefault(); showPublic(); });
-document.getElementById('btn-voltar-consulta').addEventListener('click', showPublic);
-document.getElementById('btn-entrar').addEventListener('click', doLogin);
-document.getElementById('btn-voltar-login').addEventListener('click', showPublic);
-document.getElementById('btn-sair').addEventListener('click', doLogout);
-document.getElementById('link-consulta-footer').addEventListener('click', function(e){ e.preventDefault(); showConsulta(); });
-document.getElementById('login-senha').addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
-
-// INIT
-if (sessionStorage.getItem('solvo_auth') === '1') {
-  showAdmin();
-} else {
-  showPublic();
-}
-
-setInterval(function() {
-  if (!document.getElementById('admin-page').classList.contains('hidden')) {
-    updateBadge();
-  }
-}, 10000);
-</script>
 </body>
 </html>
