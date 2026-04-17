@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termos de Uso e Política de Privacidade — Solvo</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff;--bg2:#f4f6ff;--ink:#0a0a14;--ink2:#3d3d52;--ink3:#8888a0;
+  --accent:#3b3bff;--accent2:#7c3bff;--line:#e8e8f0;--line2:rgba(59,59,255,0.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--ink);font-family:'Outfit',sans-serif;font-weight:400;line-height:1.7;}
+
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-mark{width:32px;height:32px;}
+.logo-text{font-size:20px;font-weight:800;letter-spacing:-0.5px;color:var(--ink);}
+.logo-text span{color:var(--accent);}
+.nav-back{font-size:13px;color:var(--ink3);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s;}
+.nav-back:hover{color:var(--accent);}
+
+/* TABS */
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--line);padding:0 48px;background:#fff;position:sticky;top:64px;z-index:99;}
+.tab{padding:16px 24px;font-size:14px;font-weight:600;color:var(--ink3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.2s;background:none;border-top:none;border-left:none;border-right:none;font-family:'Outfit',sans-serif;}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+.tab:hover:not(.active){color:var(--ink2);}
+
+/* CONTENT */
+.doc{display:none;max-width:780px;margin:0 auto;padding:56px 24px 100px;}
+.doc.active{display:block;}
+
+.doc-header{margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--line);}
+.doc-eyebrow{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-family:'JetBrains Mono',monospace;}
+.doc-header h1{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:12px;}
+.doc-meta{font-size:13px;color:var(--ink3);font-family:'JetBrains Mono',monospace;}
+
+h2{font-size:19px;font-weight:700;letter-spacing:-0.3px;color:var(--ink);margin:40px 0 14px;padding-top:8px;border-top:1px solid var(--line);}
+h2:first-of-type{border-top:none;}
+h3{font-size:15px;font-weight:700;color:var(--ink);margin:24px 0 10px;}
+p{font-size:15px;color:var(--ink2);margin-bottom:14px;line-height:1.8;}
+ul,ol{padding-left:20px;margin-bottom:14px;}
+li{font-size:15px;color:var(--ink2);margin-bottom:6px;line-height:1.7;}
+strong{color:var(--ink);font-weight:600;}
+a{color:var(--accent);text-decoration:underline;}
+
+.alert-box{background:rgba(59,59,255,0.05);border:1.5px solid var(--line2);border-radius:12px;padding:18px 22px;margin:24px 0;}
+.alert-box p{margin:0;font-size:14px;}
+.alert-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;font-family:'JetBrains Mono',monospace;}
+
+.highlight{background:linear-gradient(135deg,rgba(59,59,255,0.04),rgba(124,59,255,0.03));border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 10px 10px 0;margin:20px 0;}
+.highlight p{margin:0;font-size:14px;line-height:1.7;}
+
+footer-doc{display:block;border-top:1px solid var(--line);padding:32px 48px;text-align:center;font-size:12px;color:var(--ink3);}
+
+@media(max-width:600px){
+  nav{padding:0 20px;}
+  .tabs{padding:0 20px;overflow-x:auto;}
+  .tab{padding:14px 16px;font-size:13px;white-space:nowrap;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <svg class="logo-mark" viewBox="0 0 36 36" fill="none">
+      <circle cx="18" cy="14" r="9" fill="url(#lg1)"/>
+      <path d="M10 21 Q7 27 9 31" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M13.5 23 Q12 28.5 13.5 32" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M18 24 Q18 29.5 18 33" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M22.5 23 Q24 28.5 22.5 32" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M26 21 Q29 27 27 31" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <text x="18" y="19.5" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" font-weight="800" fill="white">S</text>
+      <defs><linearGradient id="lg1" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b3bff"/><stop offset="100%" stop-color="#7c3bff"/></linearGradient></defs>
+    </svg>
+    <span class="logo-text">Sol<span>vo</span></span>
+  </a>
+  <a href="index.html" class="nav-back">← Voltar ao site</a>
+</nav>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('termos',this)">Termos de Uso</button>
+  <button class="tab" onclick="showTab('privacidade',this)">Política de Privacidade</button>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- TERMOS DE USO                                  -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="doc active" id="doc-termos">
+  <div class="doc-header">
+    <div class="doc-eyebrow">// Documento legal</div>
+    <h1>Termos de Uso</h1>
+    <div class="doc-meta">Solvo Plataforma de Serviços Jurídicos · Versão 1.0 · Abril de 2026</div>
+  </div>
+
+  <div class="alert-box">
+    <div class="alert-label">Leia antes de continuar</div>
+    <p>Ao utilizar a plataforma Solvo e ao clicar em "Aceito os Termos de Uso", você declara ter lido, compreendido e concordado integralmente com as condições abaixo. Caso não concorde, não utilize a plataforma.</p>
+  </div>
+
+  <h2>1. O que é a Solvo</h2>
+  <p>A <strong>Solvo</strong> é uma plataforma digital de intermediação de serviços jurídicos que conecta usuários a advogados regularmente inscritos na Ordem dos Advogados do Brasil (OAB), habilitados ao exercício da advocacia na forma da Lei n.º 8.906/1994.</p>
+  <p>A Solvo <strong>não é um escritório de advocacia</strong>, não exerce advocacia e não representa qualquer das partes em processos judiciais ou administrativos. A plataforma atua exclusivamente como meio de conexão tecnológica entre o usuário e o profissional do Direito.</p>
+  <p>Os serviços jurídicos são prestados de forma autônoma e independente pelos advogados cadastrados na plataforma, sob sua exclusiva responsabilidade técnica e ética, nos termos do Estatuto da Advocacia e do Código de Ética e Disciplina da OAB.</p>
+
+  <h2>2. Serviços disponíveis</h2>
+  <p>Por meio da plataforma, o usuário pode solicitar os seguintes serviços de consultoria jurídica:</p>
+  <ul>
+    <li>Parecer jurídico escrito, assinado digitalmente com certificado ICP-Brasil</li>
+    <li>Orientação jurídica sobre direitos e encaminhamentos cabíveis</li>
+    <li>Análise de contratos, notificações e documentos jurídicos</li>
+    <li>Elaboração de notificações extrajudiciais</li>
+    <li>Elaboração de contratos e outros documentos jurídicos</li>
+    <li>Orientação para atuação em Juizados Especiais Cíveis</li>
+  </ul>
+
+  <div class="highlight">
+    <p><strong>Importante:</strong> os serviços da Solvo são de natureza consultiva. A plataforma <strong>não oferece representação judicial ou extrajudicial</strong>, patrocínio de causas ou atuação como procurador em processos. Para esses fins, o usuário deverá contratar diretamente um advogado.</p>
+  </div>
+
+  <h2>3. Natureza da relação</h2>
+  <p>A relação jurídica de prestação de serviços advocatícios se estabelece diretamente entre o <strong>usuário e o advogado</strong> responsável pelo atendimento, sendo a Solvo mera intermediadora tecnológica.</p>
+  <p>O vínculo entre a Solvo e os advogados cadastrados é de natureza civil autônoma, não caracterizando relação de emprego, sociedade ou subordinação.</p>
+  <p>Os advogados cadastrados na plataforma são responsáveis exclusivos pelo conteúdo técnico-jurídico dos pareceres e documentos por eles elaborados, nos termos dos arts. 31 a 33 do Código de Ética e Disciplina da OAB.</p>
+
+  <h2>4. Cadastro e aceitação</h2>
+  <p>Para utilizar a plataforma, o usuário fornece nome completo e número de WhatsApp, além de descrever seu problema jurídico. Não há criação de conta ou senha.</p>
+  <p>O aceite expresso dos presentes Termos, realizado no momento do envio do chamado, constitui manifestação de vontade válida nos termos do art. 10 da Lei n.º 14.063/2020 e do art. 107 do Código Civil.</p>
+
+  <h2>5. Forma de pagamento e condições comerciais</h2>
+  <p>O usuário só realiza o pagamento após o recebimento do documento jurídico. O valor é informado previamente e fixo por tipo de serviço contratado.</p>
+  <p>Após o envio do parecer ou documento, o link de pagamento é encaminhado ao usuário. O pagamento é realizado via Pix.</p>
+  <p>Não há cobrança antecipada, assinatura recorrente ou honorários condicionados ao êxito de qualquer demanda.</p>
+  <p>Em caso de insatisfação com o documento entregue, o usuário pode solicitar revisão dentro de <strong>48 horas</strong> do recebimento, por meio do WhatsApp indicado na plataforma. Após esse prazo, considera-se o serviço aceito.</p>
+
+  <h2>6. Limitações e exclusão de responsabilidade</h2>
+  <p>A Solvo não se responsabiliza por:</p>
+  <ul>
+    <li>Decisões tomadas pelo usuário com base nos pareceres emitidos</li>
+    <li>Resultados de processos judiciais ou administrativos</li>
+    <li>Falhas de conexão à internet ou indisponibilidade temporária da plataforma</li>
+    <li>Informações incorretas fornecidas pelo próprio usuário ao descrever o caso</li>
+    <li>Atos praticados pelo usuário em juízo sem representação de advogado</li>
+  </ul>
+  <p>O parecer jurídico é elaborado com base exclusivamente nas informações fornecidas pelo usuário. A omissão de fatos relevantes pode comprometer a qualidade da orientação prestada, sendo de responsabilidade do usuário a completude das informações.</p>
+
+  <h2>7. Propriedade intelectual</h2>
+  <p>Os pareceres e documentos produzidos pelos advogados na plataforma são de uso exclusivo do usuário que os contratou, para fins pessoais relacionados ao caso descrito. É vedada a reprodução, comercialização ou distribuição dos documentos sem autorização expressa.</p>
+  <p>A marca, o logotipo, o design e o código-fonte da plataforma Solvo são de propriedade de seus criadores e não podem ser reproduzidos sem autorização.</p>
+
+  <h2>8. Conformidade com o Código de Ética da OAB</h2>
+  <p>Todos os advogados cadastrados na Solvo são regularmente inscritos na OAB e exercem a advocacia em conformidade com:</p>
+  <ul>
+    <li>Lei n.º 8.906/1994 — Estatuto da Advocacia e da OAB</li>
+    <li>Código de Ética e Disciplina da OAB</li>
+    <li>Provimento n.º 205/2021 do CFOAB — publicidade e marketing jurídico</li>
+  </ul>
+  <p>A plataforma não realiza captação de clientela de forma mercantil, não promete resultados e não oferece serviços em desacordo com as normas éticas da advocacia brasileira.</p>
+
+  <h2>9. Vigência e alterações</h2>
+  <p>Estes Termos entram em vigor na data de seu aceite pelo usuário. A Solvo reserva-se o direito de alterá-los a qualquer tempo, sendo as modificações comunicadas mediante atualização desta página. O uso continuado da plataforma após a publicação de alterações implica aceitação dos novos termos.</p>
+
+  <h2>10. Foro e legislação aplicável</h2>
+  <p>Estes Termos são regidos pelas leis brasileiras. Fica eleito o foro da Comarca de Porto Alegre/RS para dirimir eventuais controvérsias, com renúncia a qualquer outro, por mais privilegiado que seja.</p>
+
+  <h2>11. Contato</h2>
+  <p>Para dúvidas, solicitações ou reclamações relacionadas a estes Termos, o usuário pode entrar em contato pelo WhatsApp disponível na plataforma ou pelo e-mail indicado no rodapé do site.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- POLÍTICA DE PRIVACIDADE                        -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="doc" id="doc-privacidade">
+  <div class="doc-header">
+    <div class="doc-eyebrow">// Documento legal</div>
+    <h1>Política de Privacidade</h1>
+    <div class="doc-meta">Solvo Plataforma de Serviços Jurídicos · Versão 1.0 · Abril de 2026 · Em conformidade com a Lei n.º 13.709/2018 (LGPD)</div>
+  </div>
+
+  <div class="alert-box">
+    <div class="alert-label">Compromisso com a privacidade</div>
+    <p>A Solvo trata seus dados pessoais com responsabilidade e transparência, em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD — Lei n.º 13.709/2018). Esta Política explica quais dados coletamos, por que, como usamos e como você pode exercer seus direitos.</p>
+  </div>
+
+  <h2>1. Controlador dos dados</h2>
+  <p>O controlador dos dados pessoais tratados por esta plataforma é a <strong>Solvo Plataforma de Serviços Jurídicos</strong>, operada por advogada regularmente inscrita na OAB/RS sob o n.º 94.800.</p>
+  <p>Para exercer seus direitos ou entrar em contato com o encarregado de dados (DPO), utilize o WhatsApp disponível na plataforma.</p>
+
+  <h2>2. Dados coletados</h2>
+  <p>A Solvo coleta apenas os dados estritamente necessários para a prestação do serviço:</p>
+
+  <h3>2.1 Dados fornecidos pelo usuário</h3>
+  <ul>
+    <li><strong>Nome completo</strong> — para identificação no atendimento</li>
+    <li><strong>Número de WhatsApp</strong> — para retorno do advogado e entrega do documento</li>
+    <li><strong>Descrição do problema jurídico</strong> — em texto ou áudio transcrito automaticamente</li>
+  </ul>
+
+  <h3>2.2 Dados gerados automaticamente</h3>
+  <ul>
+    <li>Número do chamado e data/hora de envio</li>
+    <li>Status do atendimento</li>
+  </ul>
+
+  <div class="highlight">
+    <p><strong>A Solvo não coleta</strong> dados de localização, cookies de rastreamento, dados financeiros, CPF, endereço ou qualquer dado além dos listados acima. O pagamento é realizado via Pix diretamente pela plataforma do banco, sem que a Solvo acesse dados bancários do usuário.</p>
+  </div>
+
+  <h2>3. Dados sensíveis de natureza jurídica</h2>
+  <p>A descrição do problema jurídico fornecida pelo usuário pode conter informações de natureza sensível (conflitos familiares, trabalhistas, de saúde, financeiros). Esses dados são tratados com sigilo absoluto, acessados exclusivamente pelo advogado responsável pelo atendimento, sob dever legal de sigilo profissional (art. 7.º, II, da Lei n.º 8.906/1994).</p>
+  <p>Esses dados <strong>nunca são compartilhados com terceiros</strong>, vendidos ou utilizados para fins comerciais, publicitários ou de perfilamento.</p>
+
+  <h2>4. Finalidade e base legal do tratamento</h2>
+  <p>Os dados são tratados com base nas seguintes hipóteses legais previstas na LGPD:</p>
+  <ul>
+    <li><strong>Consentimento</strong> (art. 7.º, I) — o usuário aceita expressamente os termos ao enviar o chamado</li>
+    <li><strong>Execução de contrato</strong> (art. 7.º, V) — necessário para prestar o serviço contratado</li>
+    <li><strong>Legítimo interesse</strong> (art. 7.º, IX) — para comunicação sobre o status do atendimento</li>
+    <li><strong>Cumprimento de obrigação legal</strong> (art. 7.º, II) — para atender eventuais determinações judiciais ou regulatórias</li>
+  </ul>
+
+  <h2>5. Armazenamento e segurança</h2>
+  <p>Os dados dos chamados são armazenados localmente no dispositivo do operador da plataforma, protegidos por senha de acesso. Não há transferência para servidores externos de terceiros.</p>
+  <p>Os dados são mantidos pelo prazo de <strong>5 (cinco) anos</strong> contados da data do atendimento, em conformidade com o prazo prescricional geral do Código Civil (art. 205), após o qual são excluídos permanentemente.</p>
+  <p>O áudio gravado pelo usuário é processado pela API da Anthropic (Claude) exclusivamente para fins de transcrição automática, não sendo armazenado após o processamento.</p>
+
+  <h2>6. Compartilhamento de dados</h2>
+  <p>Os dados do usuário <strong>não são vendidos, cedidos ou compartilhados</strong> com terceiros para fins comerciais.</p>
+  <p>O compartilhamento ocorre apenas nas seguintes situações:</p>
+  <ul>
+    <li><strong>Advogado responsável pelo atendimento</strong> — acesso restrito ao caso específico, sob sigilo profissional</li>
+    <li><strong>Anthropic (transcrição de áudio)</strong> — dados de áudio processados pontualmente para transcrição, sujeitos à política de privacidade da Anthropic</li>
+    <li><strong>Autoridades competentes</strong> — apenas mediante determinação judicial ou legal expressa</li>
+  </ul>
+
+  <h2>7. Direitos do titular</h2>
+  <p>Nos termos do art. 18 da LGPD, o usuário tem direito a:</p>
+  <ul>
+    <li><strong>Confirmação</strong> da existência de tratamento de seus dados</li>
+    <li><strong>Acesso</strong> aos dados pessoais armazenados</li>
+    <li><strong>Correção</strong> de dados incompletos, inexatos ou desatualizados</li>
+    <li><strong>Exclusão</strong> dos dados, mediante solicitação — envie "DELETE + seu nome" pelo WhatsApp da plataforma</li>
+    <li><strong>Revogação do consentimento</strong> a qualquer momento, sem prejuízo dos serviços já prestados</li>
+    <li><strong>Portabilidade</strong> dos dados, mediante solicitação formal</li>
+    <li><strong>Informação</strong> sobre compartilhamentos realizados</li>
+  </ul>
+  <p>As solicitações serão respondidas em até <strong>15 dias úteis</strong>.</p>
+
+  <h2>8. Cookies e rastreamento</h2>
+  <p>A plataforma Solvo <strong>não utiliza cookies</strong> de rastreamento, ferramentas de analytics de terceiros (Google Analytics, Meta Pixel ou similares), nem qualquer tecnologia de perfilamento comportamental.</p>
+  <p>O armazenamento local (localStorage) do navegador é utilizado exclusivamente para funcionamento técnico da plataforma (registro dos chamados), sem compartilhamento externo.</p>
+
+  <h2>9. Menores de idade</h2>
+  <p>A plataforma não é destinada a menores de 18 anos. Caso identificado o uso por menor, os dados serão imediatamente excluídos.</p>
+
+  <h2>10. Transferência internacional</h2>
+  <p>O processamento de áudio para transcrição utiliza a API da Anthropic, empresa americana, sujeita às leis dos Estados Unidos. Essa transferência ocorre de forma pontual, exclusivamente para fins de transcrição, e a Anthropic adota padrões de segurança compatíveis com as exigências da LGPD.</p>
+
+  <h2>11. Alterações desta Política</h2>
+  <p>Esta Política pode ser atualizada a qualquer tempo. Alterações relevantes serão comunicadas mediante atualização desta página, com indicação da data de revisão. O uso continuado da plataforma após publicação de alterações implica aceite da nova versão.</p>
+
+  <h2>12. Contato e encarregado de dados</h2>
+  <p>Para exercer seus direitos, esclarecer dúvidas ou fazer reclamações relacionadas ao tratamento de dados pessoais, entre em contato pelo WhatsApp da plataforma ou pelo e-mail indicado no site.</p>
+  <p>Caso não obtenha resposta satisfatória, você pode contatar a <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong> pelo site <a href="https://www.gov.br/anpd" target="_blank">www.gov.br/anpd</a>.</p>
+</div>
+
+<footer-doc>
+  Solvo Plataforma de Serviços Jurídicos · <a href="index.html">Voltar ao site</a>
+</footer-doc>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.doc').forEach(d => d.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('doc-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// Abre a aba correta se vier de um link com #privacidade
+if (window.location.hash === '#privacidade') {
+  showTab('privacidade', document.querySelectorAll('.tab')[1]);
+}
+</script>
+</body>
+</html>
